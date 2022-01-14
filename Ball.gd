@@ -1,7 +1,9 @@
 extends KinematicBody2D
 
-onready var screenSize = ProjectSettings.get_setting("display/window/size/width")
-onready var sprites = [preload("res://gfx/pongman2_ball.png"), preload("res://gfx/pongman2_ball2.png")]
+onready var screenSize = ProjectSettings.get_setting\
+							("display/window/size/width")
+onready var sprites = [preload("res://gfx/pongman2_ball.png"), \
+						preload("res://gfx/pongman2_ball2.png")]
 
 var defaultSpeed = 400
 var startpos
@@ -13,6 +15,7 @@ signal addScore(side)
 
 func _physics_process(delta):
 	var collision = move_and_collide(speed * movement * delta)
+	
 	if collision:
 		print(collision.collider.name)
 		movement = movement.bounce(collision.normal)

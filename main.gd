@@ -29,8 +29,8 @@ var xOffset
 var ballSpeed
 var finishScore
 #управление игроков
-var inputDown = ["p2_down", "ui_down"]
-var inputUp = ["p2_up", "ui_up"]
+var inputDown = ["plr_left_down", "plr_right_down"]
+var inputUp = ["plr_left_up", "plr_right_up"]
 var playable = [true, true]
 var aiSide = [-1, 1]
 
@@ -43,8 +43,8 @@ func _ready():
 
 # warning-ignore:unused_argument
 func _process(delta):
-	if(Input.is_action_just_pressed("ui_cancel") or \
-	Input.is_action_just_pressed("ui_accept")):
+	if(Input.is_action_just_pressed("ui_cancel")):
+		print("павуза")
 		pauseToggle()
 	
 
@@ -67,6 +67,7 @@ func startGame():
 	var rightPaddle = createPaddleAt(screenSize.x - screenSize.x / xOffset, 1)
 	rightPaddle.scale.x = -1
 	set_process(true)
+	$UI/GUI/pauseButton.grab_focus()
 
 func createPaddleAt(pos, input):
 	var paddle = paddleLoad.instance()
@@ -95,8 +96,6 @@ func createBall():
 	balls.spawn()
 	
 	return balls
-	
-
 
 #установка настроек по умолчанию
 func resetToDefault():
@@ -123,8 +122,13 @@ func _add_score(side):
 
 func death(side):
 	print("yooo player %d won lets gooo" % (side + 1))
-	removeObjects()
+	
+	get_tree().paused = true
+	pauseScreen.hide()
 	gameover.show()
+	$UI/GUI.hide()
+	$gameObjects/Ball.hide()
+	
 	$menu/afterlife/congrats.text = \
 	"wow congrats\nplayer %s!" % str(side+1)
 	set_process(false)
@@ -138,21 +142,32 @@ func removeObjects():
 func stopEverything():
 	print("Kris Get The Banana")
 	yield(get_tree().create_timer(0.5), "timeout")
-	pauseScreen.hide()
-	gameover.hide()
+	
 	get_tree().paused = false
-	removeObjects()
-	titleScreen.show()
+	
+	gameover.hide()
 	$bg.hide()
 	$UI/GUI.hide()
+	pauseScreen.hide()
+	removeObjects()
+	
+	titleScreen.show()
+	
 	score = [0, 0]
 	scoreboard[0].text = ""
 	scoreboard[1].text = ""
+	
+	$menu/settings/Button.grab_focus()
 	set_process(false)
 
 func pauseToggle():
 	pauseScreen.set_visible(!pauseScreen.visible)
-	get_tree().paused = !get_tree().paused
+	get_tree().paused = not get_tree().paused
+	if get_tree().paused:
+		$menu/pause/VBoxContainer/continue.grab_focus()
+	else:
+		#yield(get_tree().create_timer(0.05), "timeout")
+		$UI/GUI/pauseButton.grab_focus()
 
 
 # warning-ignore:unused_argument
@@ -167,3 +182,8 @@ func _on_Playable_toggled(button_pressed, extra_arg_0):
 
 func _on_maxScore_value_changed(value):
 	$menu/settings/maxScoreText.text = "Score to win:\n\n" + str(value)
+
+#func hideMenus():
+#	pauseScreen.hide()
+#	gameover.hide()
+#	$UI/GUI.hide()
