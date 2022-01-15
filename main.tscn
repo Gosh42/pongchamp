@@ -95,21 +95,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="menu/settings"]
-margin_left = 274.0
-margin_top = 170.0
-margin_right = 366.0
-margin_bottom = 190.0
-text = "start game!!!"
+[node name="HBoxContainer" type="HBoxContainer" parent="menu/settings"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -232.0
+margin_top = -20.0
+margin_right = 232.0
+margin_bottom = 20.0
+focus_neighbour_top = NodePath("../maxScore")
+focus_neighbour_bottom = NodePath("../maxScore")
+custom_constants/separation = 46
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="1_Playable" type="CheckBox" parent="menu/settings"]
-margin_left = 64.0
-margin_top = 168.0
-margin_right = 204.0
-margin_bottom = 192.0
+[node name="1_Playable" type="CheckBox" parent="menu/settings/HBoxContainer"]
+margin_right = 140.0
+margin_bottom = 40.0
 rect_pivot_offset = Vector2( 176, 12 )
 pressed = true
 text = "Player 1: Playable"
@@ -117,11 +121,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="2_Playable" type="CheckBox" parent="menu/settings"]
-margin_left = 436.0
-margin_top = 168.0
-margin_right = 576.0
-margin_bottom = 192.0
+[node name="Button" type="Button" parent="menu/settings/HBoxContainer"]
+margin_left = 186.0
+margin_right = 278.0
+margin_bottom = 40.0
+text = "start game!!!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2_Playable" type="CheckBox" parent="menu/settings/HBoxContainer"]
+margin_left = 324.0
+margin_right = 464.0
+margin_bottom = 40.0
 rect_pivot_offset = Vector2( 176, 12 )
 pressed = true
 text = "Player 2: Playable"
@@ -130,10 +142,14 @@ __meta__ = {
 }
 
 [node name="maxScore" type="HSlider" parent="menu/settings"]
-margin_left = 280.0
-margin_top = 224.0
-margin_right = 372.0
-margin_bottom = 240.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -48.0
+margin_top = 44.0
+margin_right = 48.0
+margin_bottom = 60.0
 min_value = 1.0
 max_value = 15.0
 value = 5.0
@@ -142,7 +158,7 @@ __meta__ = {
 }
 
 [node name="maxScoreText" type="Label" parent="menu/settings"]
-margin_left = 277.0
+margin_left = 272.0
 margin_top = 208.0
 margin_right = 369.0
 margin_bottom = 256.0
@@ -197,17 +213,22 @@ __meta__ = {
 
 [node name="afterlife" type="Control" parent="menu"]
 visible = false
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 640.0
+margin_bottom = 360.0
+mouse_filter = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="congrats" type="Label" parent="menu/afterlife"]
-margin_left = 176.0
-margin_top = 72.0
-margin_right = 464.0
-margin_bottom = 174.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -96.0
+margin_top = -76.0
+margin_right = 96.0
+margin_bottom = -41.0
 custom_fonts/font = SubResource( 5 )
 text = "wow congrats
 player !"
@@ -216,22 +237,33 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="restart" type="Button" parent="menu/afterlife"]
-margin_left = 272.0
-margin_top = 128.0
-margin_right = 368.0
-margin_bottom = 160.0
+[node name="VBoxContainer" type="VBoxContainer" parent="menu/afterlife"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -48.5
+margin_top = -26.5
+margin_right = 48.5
+margin_bottom = 26.5
+custom_constants/separation = 13
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="restart" type="Button" parent="menu/afterlife/VBoxContainer"]
+margin_right = 97.0
+margin_bottom = 20.0
 rect_pivot_offset = Vector2( 48, 16 )
 text = "play uno mas"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="quit" type="Button" parent="menu/afterlife"]
-margin_left = 272.0
-margin_top = 192.0
-margin_right = 368.0
-margin_bottom = 224.0
+[node name="quit" type="Button" parent="menu/afterlife/VBoxContainer"]
+margin_top = 33.0
+margin_right = 97.0
+margin_bottom = 53.0
 rect_pivot_offset = Vector2( 48, 16 )
 text = "quit to menu"
 __meta__ = {
@@ -355,12 +387,12 @@ shape = SubResource( 2 )
 position = Vector2( 640, 0 )
 shape = SubResource( 2 )
 
-[connection signal="button_down" from="menu/settings/Button" to="." method="_on_Button_button_down"]
-[connection signal="toggled" from="menu/settings/1_Playable" to="." method="_on_Playable_toggled" binds= [ 0 ]]
-[connection signal="toggled" from="menu/settings/2_Playable" to="." method="_on_Playable_toggled" binds= [ 1 ]]
+[connection signal="toggled" from="menu/settings/HBoxContainer/1_Playable" to="." method="_on_Playable_toggled" binds= [ 0 ]]
+[connection signal="button_down" from="menu/settings/HBoxContainer/Button" to="." method="_on_Button_button_down"]
+[connection signal="toggled" from="menu/settings/HBoxContainer/2_Playable" to="." method="_on_Playable_toggled" binds= [ 1 ]]
 [connection signal="value_changed" from="menu/settings/maxScore" to="." method="_on_maxScore_value_changed"]
 [connection signal="button_down" from="menu/pause/VBoxContainer/continue" to="." method="pauseToggle"]
 [connection signal="button_down" from="menu/pause/VBoxContainer/quit" to="." method="stopEverything"]
-[connection signal="button_down" from="menu/afterlife/restart" to="." method="startGame"]
-[connection signal="button_down" from="menu/afterlife/quit" to="." method="stopEverything"]
+[connection signal="button_down" from="menu/afterlife/VBoxContainer/restart" to="." method="startGame"]
+[connection signal="button_down" from="menu/afterlife/VBoxContainer/quit" to="." method="stopEverything"]
 [connection signal="button_down" from="UI/GUI/pauseButton" to="." method="pauseToggle"]

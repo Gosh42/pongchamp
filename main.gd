@@ -40,6 +40,7 @@ func _ready():
 	resetToDefault()
 	$bg.hide()
 	set_process(false)
+	$menu/settings/HBoxContainer/Button.grab_focus()
 
 # warning-ignore:unused_argument
 func _process(delta):
@@ -49,6 +50,7 @@ func _process(delta):
 	
 
 func startGame():
+	get_tree().paused = false
 	finishScore = $menu/settings/maxScore.value
 	removeObjects()
 	#yield(get_tree().create_timer(0.5), "timeout")
@@ -66,8 +68,8 @@ func startGame():
 	var _leftPaddle = createPaddleAt(screenSize.x / xOffset, 0)
 	var rightPaddle = createPaddleAt(screenSize.x - screenSize.x / xOffset, 1)
 	rightPaddle.scale.x = -1
-	set_process(true)
 	$UI/GUI/pauseButton.grab_focus()
+	set_process(true)
 
 func createPaddleAt(pos, input):
 	var paddle = paddleLoad.instance()
@@ -121,17 +123,18 @@ func _add_score(side):
 		death(side)
 
 func death(side):
+	set_process(false)
+	$menu/afterlife/VBoxContainer/restart.grab_focus()
 	print("yooo player %d won lets gooo" % (side + 1))
 	
 	get_tree().paused = true
 	pauseScreen.hide()
 	gameover.show()
 	$UI/GUI.hide()
-	$gameObjects/Ball.hide()
+	ball.hide()
 	
 	$menu/afterlife/congrats.text = \
 	"wow congrats\nplayer %s!" % str(side+1)
-	set_process(false)
 
 func removeObjects():
 	#удаление объектов, если они есть
@@ -157,7 +160,7 @@ func stopEverything():
 	scoreboard[0].text = ""
 	scoreboard[1].text = ""
 	
-	$menu/settings/Button.grab_focus()
+	$menu/settings/HBoxContainer/Button.grab_focus()
 	set_process(false)
 
 func pauseToggle():
