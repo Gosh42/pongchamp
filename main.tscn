@@ -152,7 +152,7 @@ margin_right = 48.0
 margin_bottom = 60.0
 min_value = 1.0
 max_value = 15.0
-value = 5.0
+value = 4.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -164,7 +164,7 @@ margin_right = 369.0
 margin_bottom = 256.0
 text = "Score to win:
 
-5"
+4"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -293,7 +293,7 @@ scale = Vector2( 2, -2 )
 normal = ExtResource( 6 )
 pressed = ExtResource( 7 )
 passby_press = true
-action = "p2_up"
+action = "plr_left_up"
 visibility_mode = 1
 
 [node name="left_down" type="TouchScreenButton" parent="UI/GUI/ctrl_player_1"]
@@ -303,7 +303,7 @@ scale = Vector2( 2, 2 )
 normal = ExtResource( 6 )
 pressed = ExtResource( 7 )
 passby_press = true
-action = "p2_down"
+action = "plr_left_down"
 visibility_mode = 1
 
 [node name="ctrl_player_2" type="Control" parent="UI/GUI"]
@@ -319,7 +319,7 @@ scale = Vector2( 2, -2 )
 normal = ExtResource( 6 )
 pressed = ExtResource( 7 )
 passby_press = true
-action = "ui_up"
+action = "plr_right_up"
 visibility_mode = 1
 
 [node name="right_down" type="TouchScreenButton" parent="UI/GUI/ctrl_player_2"]
@@ -329,7 +329,7 @@ scale = Vector2( 2, 2 )
 normal = ExtResource( 6 )
 pressed = ExtResource( 7 )
 passby_press = true
-action = "ui_down"
+action = "plr_right_down"
 visibility_mode = 1
 
 [node name="pauseButton" type="TextureButton" parent="UI/GUI"]
