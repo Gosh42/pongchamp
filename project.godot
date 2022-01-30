@@ -93,6 +93,11 @@ plr_right_up={
  ]
 }
 
+[locale]
+
+test="ru"
+translations=PoolStringArray( "res://txt/text.en.translation", "res://txt/text.ru.translation" )
+
 [physics]
 
 common/enable_pause_aware_picking=true

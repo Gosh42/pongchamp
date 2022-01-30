@@ -41,6 +41,7 @@ func _ready():
 	$bg.hide()
 	set_process(false)
 	$menu/settings/HBoxContainer/Button.grab_focus()
+	_on_maxScore_value_changed(4)
 
 # warning-ignore:unused_argument
 func _process(delta):
@@ -133,9 +134,8 @@ func death(side):
 	$UI/GUI.hide()
 	ball.hide()
 	
-	$menu/afterlife/congrats.text = \
-	"wow congrats\nplayer %s!" % str(side+1)
-
+	var wintext = tr("END_CONGRATS")
+	$menu/afterlife/congrats.text = wintext.format({n=side+1})
 func removeObjects():
 	#удаление объектов, если они есть
 	if obj.get_child_count() > 0:
@@ -184,8 +184,14 @@ func _on_Playable_toggled(button_pressed, extra_arg_0):
 
 
 func _on_maxScore_value_changed(value):
-	$menu/settings/maxScoreText.text = "Score to win:\n\n" + str(value)
+	$menu/settings/maxScoreText.text = tr("SCORE_TO_WIN") + "\n\n" + str(value)
 
+func langSwap():
+	if TranslationServer.get_locale() == "en":
+		TranslationServer.set_locale("ru")
+	else:
+		TranslationServer.set_locale("en")
+	get_tree().reload_current_scene()
 #func hideMenus():
 #	pauseScreen.hide()
 #	gameover.hide()

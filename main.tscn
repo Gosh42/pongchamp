@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://press-start-2p.regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://main.gd" type="Script" id=2]
@@ -7,12 +7,37 @@
 [ext_resource path="res://gfx/pause.png" type="Texture" id=5]
 [ext_resource path="res://gfx/controls.png" type="Texture" id=6]
 [ext_resource path="res://gfx/controls_pressed.png" type="Texture" id=7]
+[ext_resource path="res://txt/goshpxfont2.ttf" type="DynamicFontData" id=8]
+
+[sub_resource type="DynamicFont" id=13]
+size = 20
+font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 32
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 20
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 20
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 30
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 20
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 20
+font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=5]
 outline_size = 2
@@ -48,8 +73,26 @@ pause_mode = 1
 layer = 2
 
 [node name="settings" type="Control" parent="menu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -320.0
+margin_top = -180.0
+margin_right = 320.0
+margin_bottom = 180.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lang_button" type="Button" parent="menu/settings"]
+anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
+margin_left = -108.0
+margin_bottom = 26.0
+size_flags_horizontal = 6
+custom_fonts/font = SubResource( 13 )
+text = "LANGUAGE"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -58,37 +101,36 @@ __meta__ = {
 margin_left = 176.0
 margin_top = 24.0
 margin_right = 464.0
-margin_bottom = 126.0
+margin_bottom = 64.0
 custom_fonts/font = SubResource( 4 )
-text = "PongChamp
-
-"
+text = "PongChamp"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="more text" type="Label" parent="menu/settings/game name"]
+[node name="pls dont sue" type="Label" parent="menu/settings/game name"]
 margin_left = -144.0
 margin_top = 40.0
 margin_right = 435.0
-margin_bottom = 275.0
-text = "(atari pls don't sue me for the word \"po*g\")
-(i can rename it to pingchamp if you want)
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( -200, 64 )
+custom_fonts/font = SubResource( 9 )
+text = "ATARI_PLS"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-
-
-
-
-
-
-
-
-
-
-This is sort of a recreation/remake/whatever of one of the video games of all time.
-This project is made by Gosha, mostly for learning purposes. This is a very incomplete and barebones version, but it's already playable enough, so have fun, I guess.
-Will make improvements like better graphics and UI and sounds later."
+[node name="info" type="Label" parent="menu/settings/game name"]
+margin_left = -144.0
+margin_top = 248.0
+margin_right = 435.0
+margin_bottom = 328.0
+rect_pivot_offset = Vector2( -200, 64 )
+custom_fonts/font = SubResource( 9 )
+text = "INFO"
 align = 1
 autowrap = true
 __meta__ = {
@@ -100,10 +142,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -232.0
-margin_top = -20.0
-margin_right = 232.0
-margin_bottom = 20.0
+margin_left = -290.0
+margin_top = -18.0
+margin_right = 290.0
+margin_bottom = 18.0
 focus_neighbour_top = NodePath("../maxScore")
 focus_neighbour_bottom = NodePath("../maxScore")
 custom_constants/separation = 46
@@ -112,31 +154,37 @@ __meta__ = {
 }
 
 [node name="1_Playable" type="CheckBox" parent="menu/settings/HBoxContainer"]
-margin_right = 140.0
-margin_bottom = 40.0
+margin_right = 148.0
+margin_bottom = 36.0
 rect_pivot_offset = Vector2( 176, 12 )
+size_flags_horizontal = 6
+custom_fonts/font = SubResource( 7 )
 pressed = true
-text = "Player 1: Playable"
+text = "1_PLAYABLE"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button" type="Button" parent="menu/settings/HBoxContainer"]
-margin_left = 186.0
-margin_right = 278.0
-margin_bottom = 40.0
-text = "start game!!!"
+margin_left = 194.0
+margin_right = 386.0
+margin_bottom = 36.0
+size_flags_horizontal = 6
+custom_fonts/font = SubResource( 6 )
+text = "START_GAME"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="2_Playable" type="CheckBox" parent="menu/settings/HBoxContainer"]
-margin_left = 324.0
-margin_right = 464.0
-margin_bottom = 40.0
+margin_left = 432.0
+margin_right = 580.0
+margin_bottom = 36.0
 rect_pivot_offset = Vector2( 176, 12 )
+size_flags_horizontal = 6
+custom_fonts/font = SubResource( 7 )
 pressed = true
-text = "Player 2: Playable"
+text = "2_PLAYABLE"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -147,9 +195,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -48.0
-margin_top = 44.0
+margin_top = 52.0
 margin_right = 48.0
-margin_bottom = 60.0
+margin_bottom = 68.0
 min_value = 1.0
 max_value = 15.0
 value = 4.0
@@ -158,13 +206,16 @@ __meta__ = {
 }
 
 [node name="maxScoreText" type="Label" parent="menu/settings"]
-margin_left = 272.0
-margin_top = 208.0
-margin_right = 369.0
-margin_bottom = 256.0
-text = "Score to win:
-
-4"
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = 28.0
+margin_right = 132.0
+margin_bottom = 76.0
+custom_fonts/font = SubResource( 11 )
+text = "SCORE_TO_WIN"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -184,29 +235,35 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -47.5
-margin_top = -30.0
-margin_right = 47.5
-margin_bottom = 30.0
+margin_left = -90.0
+margin_top = -36.0
+margin_right = 90.0
+margin_bottom = 36.0
 custom_constants/separation = 20
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="continue" type="Button" parent="menu/pause/VBoxContainer"]
-margin_right = 95.0
-margin_bottom = 20.0
+margin_right = 180.0
+margin_bottom = 26.0
+size_flags_horizontal = 6
+custom_fonts/font = SubResource( 12 )
 action_mode = 0
-text = "continue"
+text = "PAUSE_CONTINUE"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="quit" type="Button" parent="menu/pause/VBoxContainer"]
-margin_top = 40.0
-margin_right = 95.0
-margin_bottom = 60.0
-text = "quit to menu"
+margin_left = 6.0
+margin_top = 46.0
+margin_right = 174.0
+margin_bottom = 72.0
+size_flags_horizontal = 6
+custom_fonts/font = SubResource( 12 )
+action_mode = 0
+text = "PAUSE_TO_MENU"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -225,10 +282,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -96.0
+margin_left = -168.0
 margin_top = -76.0
-margin_right = 96.0
+margin_right = 168.0
 margin_bottom = -41.0
+size_flags_horizontal = 6
 custom_fonts/font = SubResource( 5 )
 text = "wow congrats
 player !"
@@ -242,30 +300,35 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -48.5
-margin_top = -26.5
-margin_right = 48.5
-margin_bottom = 26.5
+margin_left = -84.0
+margin_top = -32.5
+margin_right = 84.0
+margin_bottom = 32.5
 custom_constants/separation = 13
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="restart" type="Button" parent="menu/afterlife/VBoxContainer"]
-margin_right = 97.0
-margin_bottom = 20.0
-rect_pivot_offset = Vector2( 48, 16 )
-text = "play uno mas"
+margin_left = 12.0
+margin_right = 156.0
+margin_bottom = 26.0
+size_flags_horizontal = 6
+custom_fonts/font = SubResource( 12 )
+action_mode = 0
+text = "END_RESTART"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="quit" type="Button" parent="menu/afterlife/VBoxContainer"]
-margin_top = 33.0
-margin_right = 97.0
-margin_bottom = 53.0
-rect_pivot_offset = Vector2( 48, 16 )
-text = "quit to menu"
+margin_top = 39.0
+margin_right = 168.0
+margin_bottom = 65.0
+size_flags_horizontal = 6
+custom_fonts/font = SubResource( 12 )
+action_mode = 0
+text = "PAUSE_TO_MENU"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -387,6 +450,7 @@ shape = SubResource( 2 )
 position = Vector2( 640, 0 )
 shape = SubResource( 2 )
 
+[connection signal="button_down" from="menu/settings/lang_button" to="." method="langSwap"]
 [connection signal="toggled" from="menu/settings/HBoxContainer/1_Playable" to="." method="_on_Playable_toggled" binds= [ 0 ]]
 [connection signal="button_down" from="menu/settings/HBoxContainer/Button" to="." method="_on_Button_button_down"]
 [connection signal="toggled" from="menu/settings/HBoxContainer/2_Playable" to="." method="_on_Playable_toggled" binds= [ 1 ]]

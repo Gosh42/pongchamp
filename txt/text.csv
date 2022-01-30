@@ -1,0 +1,15 @@
+keys,en,ru
+LANGUAGE,ENGLISH,РУССКИЙ
+START_GAME,Start game!!!!,Начать игру!!!!
+SCORE_TO_WIN,Score to win:,Очков для победы:
+1_PLAYABLE,Player 1,Игрок 1
+2_PLAYABLE,Player 2,Игрок 2
+INFO,"Behold - sort of a remake of one of the video games of all time. This project is made by Gosha, mostly for learning purposes. This is a very incomplete and barebones version, but it's already playable enough, so have fun, I guess.","Встречайте: что-то типа ремейка одной из игр всех времён.
+Данный проект сделан Gosha в целях обучения. Это незаконченная версия, но она уже достаточно играбельна, так что веселитесь наверн."
+ATARI_PLS,"(atari pls don't sue me for the word ""po*g"")
+(i can rename it to pingchamp if you want)","(atari пж не судите за слово ""po*g"")
+(если хотите могу переименовать в pingchamp)"
+PAUSE_CONTINUE,Continue,Продолжить
+PAUSE_TO_MENU,Quit to menu,Выйти в меню
+END_CONGRATS,"Player {n} won","Игрок {n} победил"
+END_RESTART,Play again,Сыграть ещё раз
