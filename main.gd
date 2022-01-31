@@ -40,7 +40,7 @@ func _ready():
 	resetToDefault()
 	$bg.hide()
 	set_process(false)
-	$menu/settings/HBoxContainer/Button.grab_focus()
+	$menu/settings/HBoxContainer/start_button.grab_focus()
 	_on_maxScore_value_changed(4)
 
 # warning-ignore:unused_argument
@@ -110,10 +110,6 @@ func resetToDefault():
 	ballSpeed = BALL_SPEED
 	finishScore = DEFAULT_SCORE
 
-func _on_Button_button_down():
-	#if obj.get_child_count() == 0:
-	startGame()
-
 func _add_score(side):
 	score[side] += 1
 	scoreboard[side].text = str(score[side])
@@ -160,7 +156,7 @@ func stopEverything():
 	scoreboard[0].text = ""
 	scoreboard[1].text = ""
 	
-	$menu/settings/HBoxContainer/Button.grab_focus()
+	$menu/settings/HBoxContainer/start_button.grab_focus()
 	set_process(false)
 
 func pauseToggle():

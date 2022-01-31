@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://press-start-2p.regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://main.gd" type="Script" id=2]
@@ -27,15 +27,11 @@ font_data = ExtResource( 8 )
 size = 20
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=6]
-size = 30
-font_data = ExtResource( 8 )
-
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=12]
 size = 20
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=11]
 size = 20
 font_data = ExtResource( 8 )
 
@@ -148,15 +144,17 @@ margin_right = 290.0
 margin_bottom = 18.0
 focus_neighbour_top = NodePath("../maxScore")
 focus_neighbour_bottom = NodePath("../maxScore")
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_constants/separation = 46
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="1_Playable" type="CheckBox" parent="menu/settings/HBoxContainer"]
-margin_right = 148.0
+margin_left = 7.0
+margin_right = 155.0
 margin_bottom = 36.0
-rect_pivot_offset = Vector2( 176, 12 )
 size_flags_horizontal = 6
 custom_fonts/font = SubResource( 7 )
 pressed = true
@@ -165,22 +163,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="menu/settings/HBoxContainer"]
-margin_left = 194.0
-margin_right = 386.0
+[node name="start_button" type="Button" parent="menu/settings/HBoxContainer"]
+margin_left = 223.0
+margin_right = 355.0
 margin_bottom = 36.0
 size_flags_horizontal = 6
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 12 )
+action_mode = 0
 text = "START_GAME"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="2_Playable" type="CheckBox" parent="menu/settings/HBoxContainer"]
-margin_left = 432.0
-margin_right = 580.0
+margin_left = 424.0
+margin_right = 572.0
 margin_bottom = 36.0
-rect_pivot_offset = Vector2( 176, 12 )
 size_flags_horizontal = 6
 custom_fonts/font = SubResource( 7 )
 pressed = true
@@ -396,14 +394,16 @@ action = "plr_right_down"
 visibility_mode = 1
 
 [node name="pauseButton" type="TextureButton" parent="UI/GUI"]
+pause_mode = 2
 modulate = Color( 1, 1, 1, 0.666667 )
 margin_left = 304.0
 margin_top = 8.0
 margin_right = 320.0
 margin_bottom = 24.0
 rect_scale = Vector2( 2, 2 )
+action_mode = 0
 texture_normal = ExtResource( 5 )
-texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -452,7 +452,7 @@ shape = SubResource( 2 )
 
 [connection signal="button_down" from="menu/settings/lang_button" to="." method="langSwap"]
 [connection signal="toggled" from="menu/settings/HBoxContainer/1_Playable" to="." method="_on_Playable_toggled" binds= [ 0 ]]
-[connection signal="button_down" from="menu/settings/HBoxContainer/Button" to="." method="_on_Button_button_down"]
+[connection signal="button_down" from="menu/settings/HBoxContainer/start_button" to="." method="startGame"]
 [connection signal="toggled" from="menu/settings/HBoxContainer/2_Playable" to="." method="_on_Playable_toggled" binds= [ 1 ]]
 [connection signal="value_changed" from="menu/settings/maxScore" to="." method="_on_maxScore_value_changed"]
 [connection signal="button_down" from="menu/pause/VBoxContainer/continue" to="." method="pauseToggle"]
