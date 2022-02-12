@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pause_on.png-2ce8d6a1b2b7e856441b329428059818.stex"
+path="res://.import/paddle.png-c622e2babfab1dae962488cdadcd5cda.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gfx/pause_on.png"
-dest_files=[ "res://.import/pause_on.png-2ce8d6a1b2b7e856441b329428059818.stex" ]
+source_file="res://gfx/paddle.png"
+dest_files=[ "res://.import/paddle.png-c622e2babfab1dae962488cdadcd5cda.stex" ]
 
 [params]
 
@@ -32,4 +32,4 @@ process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=false
-svg/scale=2.0
+svg/scale=1.0

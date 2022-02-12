@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pongman2_ball2.png-369af49c43aacbf7003ad68165a54722.stex"
+path="res://.import/button_pressed.png-c86ddd24beec1095b16c9331215212ef.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gfx/pongman2_ball2.png"
-dest_files=[ "res://.import/pongman2_ball2.png-369af49c43aacbf7003ad68165a54722.stex" ]
+source_file="res://gfx/button_pressed.png"
+dest_files=[ "res://.import/button_pressed.png-c86ddd24beec1095b16c9331215212ef.stex" ]
 
 [params]
 

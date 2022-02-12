@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pongman2_bg.png-7182ba49d51e12c6e8b775f86e9fd481.stex"
+path="res://.import/bg.png-88cc526fff964579d5318ae957908d11.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gfx/pongman2_bg.png"
-dest_files=[ "res://.import/pongman2_bg.png-7182ba49d51e12c6e8b775f86e9fd481.stex" ]
+source_file="res://gfx/bg.png"
+dest_files=[ "res://.import/bg.png-88cc526fff964579d5318ae957908d11.stex" ]
 
 [params]
 
