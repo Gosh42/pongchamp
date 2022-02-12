@@ -20,6 +20,7 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 hframes = 3
 vframes = 3
+frame = 5
 
 [node name="Pongman2Paddle" type="Sprite" parent="."]
 position = Vector2( -2.20537, -4.86226 )

@@ -19,6 +19,7 @@ func _physics_process(delta):
 	if collision:
 		print(collision.collider.name)
 		movement = movement.bounce(collision.normal)
+		print(movement)
 		
 		if collision.collider.name.left(6) == "death":
 			if global_position.x < screenSize / 2:

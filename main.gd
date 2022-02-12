@@ -41,7 +41,7 @@ func _ready():
 	$bg.hide()
 	set_process(false)
 	$menu/settings/HBoxContainer/start_button.grab_focus()
-	_on_maxScore_value_changed(4)
+	#$menu/settingsPopup.popup()
 
 # warning-ignore:unused_argument
 func _process(delta):
@@ -52,7 +52,7 @@ func _process(delta):
 
 func startGame():
 	get_tree().paused = false
-	finishScore = $menu/settings/maxScore.value
+	finishScore = 4 #$menu/settings/maxScore.value
 	removeObjects()
 	#yield(get_tree().create_timer(0.5), "timeout")
 	#скрытие паузы
@@ -179,8 +179,7 @@ func _on_Playable_toggled(button_pressed, extra_arg_0):
 	print(extra_arg_0)
 
 
-func _on_maxScore_value_changed(value):
-	$menu/settings/maxScoreText.text = tr("SCORE_TO_WIN") + "\n\n" + str(value)
+
 
 func langSwap():
 	if TranslationServer.get_locale() == "en":

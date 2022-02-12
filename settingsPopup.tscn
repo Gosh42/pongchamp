@@ -1,0 +1,115 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://settingsPopup.gd" type="Script" id=1]
+[ext_resource path="res://txt/custompxfont.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://txt/goshpxfont2.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = ExtResource( 3 )
+
+[node name="settingsPopup" type="Popup"]
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabContainer" type="TabContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -213.0
+margin_top = -124.0
+margin_right = 214.0
+margin_bottom = 116.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+rect_pivot_offset = Vector2( 209, 104 )
+
+[node name="players text" type="Label" parent="TabContainer/VBoxContainer"]
+margin_right = 419.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 1 )
+text = "Players"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="player 1 playable" type="CheckButton" parent="TabContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 419.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "1_PLAYABLE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="player 2 playable" type="CheckButton" parent="TabContainer/VBoxContainer"]
+margin_top = 68.0
+margin_right = 419.0
+margin_bottom = 108.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "2_PLAYABLE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="maxScoreText2" type="Label" parent="TabContainer/VBoxContainer"]
+margin_top = 112.0
+margin_right = 419.0
+margin_bottom = 132.0
+custom_fonts/font = SubResource( 3 )
+text = "SCORE_TO_WIN"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="maxScore" type="HSlider" parent="TabContainer/VBoxContainer"]
+margin_top = 136.0
+margin_right = 419.0
+margin_bottom = 152.0
+min_value = 1.0
+max_value = 15.0
+value = 4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" type="GridContainer" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+columns = 2
+
+[connection signal="value_changed" from="TabContainer/VBoxContainer/maxScore" to="." method="_on_maxScore_value_changed"]

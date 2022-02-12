@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://press-start-2p.regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://main.gd" type="Script" id=2]
@@ -8,6 +8,9 @@
 [ext_resource path="res://gfx/controls.png" type="Texture" id=6]
 [ext_resource path="res://gfx/controls_pressed.png" type="Texture" id=7]
 [ext_resource path="res://txt/goshpxfont2.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://gfx/button.png" type="Texture" id=9]
+[ext_resource path="res://gfx/button_on.png" type="Texture" id=10]
+[ext_resource path="res://settingsPopup.tscn" type="PackedScene" id=11]
 
 [sub_resource type="DynamicFont" id=13]
 size = 20
@@ -28,10 +31,6 @@ size = 20
 font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=12]
-size = 20
-font_data = ExtResource( 8 )
-
-[sub_resource type="DynamicFont" id=11]
 size = 20
 font_data = ExtResource( 8 )
 
@@ -138,12 +137,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -290.0
-margin_top = -18.0
-margin_right = 290.0
-margin_bottom = 18.0
-focus_neighbour_top = NodePath("../maxScore")
-focus_neighbour_bottom = NodePath("../maxScore")
+margin_left = -288.0
+margin_top = -4.0
+margin_right = 292.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 46
@@ -152,8 +149,8 @@ __meta__ = {
 }
 
 [node name="1_Playable" type="CheckBox" parent="menu/settings/HBoxContainer"]
-margin_left = 7.0
-margin_right = 155.0
+margin_left = 12.0
+margin_right = 160.0
 margin_bottom = 36.0
 size_flags_horizontal = 6
 custom_fonts/font = SubResource( 7 )
@@ -163,58 +160,40 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="start_button" type="Button" parent="menu/settings/HBoxContainer"]
-margin_left = 223.0
-margin_right = 355.0
+[node name="start_button" type="TextureButton" parent="menu/settings/HBoxContainer"]
+margin_left = 218.0
+margin_right = 362.0
 margin_bottom = 36.0
-size_flags_horizontal = 6
-custom_fonts/font = SubResource( 12 )
-action_mode = 0
+texture_normal = ExtResource( 9 )
+texture_hover = ExtResource( 10 )
+texture_focused = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="start_text" type="Label" parent="menu/settings/HBoxContainer/start_button"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -12.0
+margin_bottom = 8.0
+rect_pivot_offset = Vector2( -200, 64 )
+custom_fonts/font = SubResource( 9 )
 text = "START_GAME"
+align = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="2_Playable" type="CheckBox" parent="menu/settings/HBoxContainer"]
-margin_left = 424.0
-margin_right = 572.0
+margin_left = 420.0
+margin_right = 568.0
 margin_bottom = 36.0
 size_flags_horizontal = 6
 custom_fonts/font = SubResource( 7 )
 pressed = true
 text = "2_PLAYABLE"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="maxScore" type="HSlider" parent="menu/settings"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -48.0
-margin_top = 52.0
-margin_right = 48.0
-margin_bottom = 68.0
-min_value = 1.0
-max_value = 15.0
-value = 4.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="maxScoreText" type="Label" parent="menu/settings"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -128.0
-margin_top = 28.0
-margin_right = 132.0
-margin_bottom = 76.0
-custom_fonts/font = SubResource( 11 )
-text = "SCORE_TO_WIN"
-align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -330,6 +309,9 @@ text = "PAUSE_TO_MENU"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="settingsPopup" parent="menu" instance=ExtResource( 11 )]
+visible = false
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 2
@@ -454,7 +436,6 @@ shape = SubResource( 2 )
 [connection signal="toggled" from="menu/settings/HBoxContainer/1_Playable" to="." method="_on_Playable_toggled" binds= [ 0 ]]
 [connection signal="button_down" from="menu/settings/HBoxContainer/start_button" to="." method="startGame"]
 [connection signal="toggled" from="menu/settings/HBoxContainer/2_Playable" to="." method="_on_Playable_toggled" binds= [ 1 ]]
-[connection signal="value_changed" from="menu/settings/maxScore" to="." method="_on_maxScore_value_changed"]
 [connection signal="button_down" from="menu/pause/VBoxContainer/continue" to="." method="pauseToggle"]
 [connection signal="button_down" from="menu/pause/VBoxContainer/quit" to="." method="stopEverything"]
 [connection signal="button_down" from="menu/afterlife/VBoxContainer/restart" to="." method="startGame"]
