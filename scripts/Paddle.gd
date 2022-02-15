@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 onready var start_pos = global_position.x
 onready var anim = $AnimationPlayer
+onready var ball = get_parent().get_node("ball")
+onready var ai_side = 1 if name.begins_with('l') else -1
 export var playable = true
 
 var max_speed = 275
@@ -20,7 +22,13 @@ func _physics_process(delta):
 		axis = Vector2(0, int(Input.is_action_pressed(input_down)) -
 		int(Input.is_action_pressed(input_up)))
 	else:
-		print("sus")
+		if(ball.velocity.x * ai_side < 0):
+			if (global_position.y > ball.global_position.y):
+				axis = Vector2(0, -1)
+			else:
+				axis = Vector2(0, 1) 
+		else:
+			axis = Vector2(0, 0)
 	
 	# Start slowing down if not going to move, otherwise move
 	if axis == Vector2.ZERO:

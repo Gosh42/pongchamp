@@ -5,7 +5,7 @@ signal add_score
 
 onready var sprites = [preload("res://gfx/ball_normal.png"), \
 	preload("res://gfx/ball_coconut.png")]
-onready var screen_middle = global_position.x
+onready var startpos = global_position
 
 var default_speed = 250
 var speed = default_speed
@@ -23,12 +23,13 @@ func _physics_process(delta):
 	
 	if collision:
 		if collision.collider.name == "death":
-			if global_position.x < screen_middle:
+			if global_position.x < startpos.x:
 				emit_signal("add_score", 1)
 				print("goal_left")
 			else:
 				emit_signal("add_score", 0)
 				print("goal_right")
+			spawn()
 				
 		elif not collision.collider.name == "walls":
 			speed += round(collision.collider.velocity.y /5.5* sign(velocity.y))
@@ -44,6 +45,8 @@ func _physics_process(delta):
 	$Sprite.rotate(velocity.y / 5)
 
 func spawn():
+	
+	global_position = startpos
 	$Sprite.texture = sprites[clamp(rng.randi_range(0, 3), 0, 1)]
 	
 	speed = default_speed
