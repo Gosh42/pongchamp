@@ -17,7 +17,7 @@ func _ready():
 	finish_score = SaveConfig.load_value("game", "required_score")
 
 func _process(delta):
-	if not get_tree().paused and Input.is_action_just_pressed("ui_cancel"):
+	if Input.is_action_just_pressed("ui_cancel"):
 		pause_button_pressed()
 
 func add_score(side):

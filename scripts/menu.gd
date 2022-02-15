@@ -4,7 +4,7 @@ func _ready():
 	if get_tree().current_scene.name == "title screen":
 		$"VBoxContainer/play button".grab_focus()
 	
-func play():
+func open_game_settings():
 	$"game settings".popup()
 	$"game settings"._on_load_button_pressed()
 	#get_tree().change_scene("res://scenes/game.tscn")
