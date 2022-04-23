@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scripts/game_settings.gd" type="Script" id=1]
+[ext_resource path="res://theme/menu_theme.tres" type="Theme" id=2]
 
 [node name="game settings" type="Popup"]
 visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 2 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -20,32 +22,34 @@ margin_left = -197.0
 margin_top = -143.0
 margin_right = 197.0
 margin_bottom = 143.0
+theme = ExtResource( 2 )
 
 [node name="close_button" type="Button" parent="."]
-margin_left = 461.0
-margin_top = 295.0
-margin_right = 507.0
-margin_bottom = 315.0
+margin_left = 442.0
+margin_top = 275.0
+margin_right = 506.0
+margin_bottom = 313.0
+focus_mode = 0
 text = "close"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="save_button" type="Button" parent="."]
-margin_left = 370.0
-margin_top = 295.0
-margin_right = 411.0
-margin_bottom = 315.0
+margin_left = 317.0
+margin_top = 275.0
+margin_right = 373.0
+margin_bottom = 313.0
 text = "save"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="load_button" type="Button" parent="."]
-margin_left = 417.0
-margin_top = 295.0
-margin_right = 456.0
-margin_bottom = 315.0
+margin_left = 382.0
+margin_top = 275.0
+margin_right = 436.0
+margin_bottom = 313.0
 disabled = true
 text = "load"
 
@@ -86,9 +90,9 @@ __meta__ = {
 
 [node name="play_button" type="Button" parent="."]
 margin_left = 134.0
-margin_top = 295.0
-margin_right = 172.0
-margin_bottom = 315.0
+margin_top = 275.0
+margin_right = 188.0
+margin_bottom = 313.0
 text = "play"
 
 [node name="Label" type="Label" parent="."]

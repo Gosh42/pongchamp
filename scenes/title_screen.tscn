@@ -75,9 +75,6 @@ custom_fonts/font = SubResource( 2 )
 text = "PLAY"
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="info button" type="TextureButton" parent="VBoxContainer"]
 margin_top = 53.0
