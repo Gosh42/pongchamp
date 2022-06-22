@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/game_settings.gd" type="Script" id=1]
 [ext_resource path="res://theme/menu_theme.tres" type="Theme" id=2]
+[ext_resource path="res://theme/button_hover.tres" type="StyleBox" id=3]
 
 [node name="game settings" type="Popup"]
-visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 2 )
@@ -73,6 +73,7 @@ margin_left = 196.0
 margin_top = 98.0
 margin_right = 272.0
 margin_bottom = 138.0
+custom_styles/hover_pressed = ExtResource( 3 )
 text = "player 1"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -83,6 +84,7 @@ margin_left = 196.0
 margin_top = 151.0
 margin_right = 327.0
 margin_bottom = 191.0
+custom_styles/hover_pressed = ExtResource( 3 )
 text = "player 2"
 __meta__ = {
 "_edit_use_anchors_": false

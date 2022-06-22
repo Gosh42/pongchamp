@@ -1,10 +1,16 @@
-[gd_resource type="Theme" load_steps=7 format=2]
+[gd_resource type="Theme" load_steps=13 format=2]
 
 [ext_resource path="res://fonts&text/goshpxfont2.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://theme/button_disabled.tres" type="StyleBox" id=2]
 [ext_resource path="res://theme/button_normal.tres" type="StyleBox" id=3]
 [ext_resource path="res://theme/button_pressed.tres" type="StyleBox" id=4]
 [ext_resource path="res://theme/button_focus.tres" type="StyleBox" id=5]
+[ext_resource path="res://theme/button_hover.tres" type="StyleBox" id=6]
+[ext_resource path="res://theme/panel.tres" type="StyleBox" id=7]
+[ext_resource path="res://gfx/button_off.png" type="Texture" id=8]
+[ext_resource path="res://gfx/button_on.png" type="Texture" id=9]
+[ext_resource path="res://gfx/button_on_disabled.png" type="Texture" id=10]
+[ext_resource path="res://gfx/button_off_disabled.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -21,7 +27,13 @@ Button/constants/hseparation = 8
 Button/fonts/font = null
 Button/styles/disabled = ExtResource( 2 )
 Button/styles/focus = ExtResource( 5 )
-Button/styles/hover = ExtResource( 3 )
+Button/styles/hover = ExtResource( 6 )
 Button/styles/normal = ExtResource( 3 )
 Button/styles/pressed = ExtResource( 4 )
-Panel/styles/panel = null
+CheckButton/icons/off = ExtResource( 8 )
+CheckButton/icons/off_disabled = ExtResource( 11 )
+CheckButton/icons/on = ExtResource( 9 )
+CheckButton/icons/on_disabled = ExtResource( 10 )
+CheckButton/styles/normal = ExtResource( 3 )
+CheckButton/styles/pressed = ExtResource( 3 )
+Panel/styles/panel = ExtResource( 7 )
