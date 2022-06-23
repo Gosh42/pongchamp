@@ -19,6 +19,7 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 
 [node name="CharacterSpriteSheet" type="Sprite" parent="."]
+use_parent_material = true
 position = Vector2( -18.205, 11.138 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )

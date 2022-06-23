@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=13 format=2]
+[gd_resource type="Theme" load_steps=17 format=2]
 
 [ext_resource path="res://fonts&text/goshpxfont2.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://theme/button_disabled.tres" type="StyleBox" id=2]
@@ -11,9 +11,15 @@
 [ext_resource path="res://gfx/button_on.png" type="Texture" id=9]
 [ext_resource path="res://gfx/button_on_disabled.png" type="Texture" id=10]
 [ext_resource path="res://gfx/button_off_disabled.png" type="Texture" id=11]
+[ext_resource path="res://theme/tab_bg.tres" type="StyleBox" id=12]
+[ext_resource path="res://theme/tab_fg.tres" type="StyleBox" id=13]
+[ext_resource path="res://theme/panel2.tres" type="StyleBox" id=14]
+[ext_resource path="res://theme/tab_disabled.tres" type="StyleBox" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
+extra_spacing_top = -2
+extra_spacing_bottom = -4
 font_data = ExtResource( 1 )
 
 [resource]
@@ -37,3 +43,7 @@ CheckButton/icons/on_disabled = ExtResource( 10 )
 CheckButton/styles/normal = ExtResource( 3 )
 CheckButton/styles/pressed = ExtResource( 3 )
 Panel/styles/panel = ExtResource( 7 )
+TabContainer/styles/panel = ExtResource( 14 )
+TabContainer/styles/tab_bg = ExtResource( 12 )
+TabContainer/styles/tab_disabled = ExtResource( 15 )
+TabContainer/styles/tab_fg = ExtResource( 13 )

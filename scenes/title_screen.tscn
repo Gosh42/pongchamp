@@ -37,26 +37,35 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -72.0
-margin_top = -18.0
+margin_top = -4.0
 margin_right = 72.0
-margin_bottom = 127.0
+margin_bottom = 141.0
 size_flags_vertical = 3
 custom_constants/separation = 21
 
 [node name="play button" type="Button" parent="VBoxContainer"]
 margin_right = 144.0
-margin_bottom = 38.0
+margin_bottom = 32.0
 theme = ExtResource( 9 )
 text = "PLAY"
 
 [node name="info button" type="Button" parent="VBoxContainer"]
-margin_top = 59.0
+margin_top = 53.0
 margin_right = 144.0
-margin_bottom = 97.0
+margin_bottom = 85.0
 theme = ExtResource( 9 )
-text = "INFO"
+text = "ABOUT"
+
+[node name="language button" type="Button" parent="VBoxContainer"]
+margin_top = 106.0
+margin_right = 144.0
+margin_bottom = 138.0
+theme = ExtResource( 9 )
+text = "LANG_SWAP"
 
 [node name="game settings" parent="." instance=ExtResource( 6 )]
+visible = false
 
 [connection signal="button_down" from="VBoxContainer/play button" to="." method="open_game_settings"]
-[connection signal="button_down" from="VBoxContainer/info button" to="." method="settings"]
+[connection signal="button_down" from="VBoxContainer/info button" to="." method="information"]
+[connection signal="button_down" from="VBoxContainer/language button" to="." method="language_swap"]

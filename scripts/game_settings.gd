@@ -1,7 +1,15 @@
 extends Popup
 
-const SAVE_PATH = "res://save.cfg"
+const SAVE_PATH = "user://save.cfg"
+
+onready var player1_check = $"/root/title screen/game settings/CheckButton"
+onready var player2_check = $"/root/title screen/game settings/CheckButton2"
+onready var score_label = $"/root/title screen/game settings/score_label"
+onready var score_slider = $"/root/title screen/game settings/score_slider"
+
+
 var config = ConfigFile.new()
+
 
 func _on_play_button_pressed():
 	_on_save_button_pressed()
@@ -10,10 +18,10 @@ func _on_play_button_pressed():
 
 func _on_save_button_pressed():
 	
-	config.set_value("game", "player1_playable", $CheckButton.pressed)
-	config.set_value("game", "player2_playable", $CheckButton2.pressed)
-	config.set_value("game", "required_score", $HSlider.value)
-	
+	config.set_value("game", "player1_playable", player1_check.pressed)
+	config.set_value("game", "player2_playable", player2_check.pressed)
+	config.set_value("game", "required_score", score_slider.value)
+
 	config.save(SAVE_PATH)
 	
 	print("saved:")
@@ -31,10 +39,12 @@ func _on_load_button_pressed():
 		print("among us")
 		_on_save_button_pressed()
 	
-	$CheckButton.pressed = config.get_value("game", "player1_playable", true)
-	$CheckButton2.pressed = config.get_value("game", "player2_playable", true)
-	$HSlider.set_value(config.get_value("game", "required_score", 12))
-	$Label.text = str(config.get_value("game", "required_score", 12))
+	player1_check.pressed = config.get_value("game", "player1_playable", true)
+	player2_check.pressed = config.get_value("game", "player2_playable", true)
+	
+	score_slider.set_value(config.get_value("game", "required_score", 12))
+	score_label.text = str(config.get_value("game", "required_score", 12))
+	
 	print("loaded:")
 	for i in config.get_sections():
 		for j in config.get_section_keys(i):
@@ -49,4 +59,4 @@ func _on_close_button_pressed():
 
 
 func _on_HSlider_value_changed(value):
-	$Label.text = str(value)
+	score_label.text = str(value)

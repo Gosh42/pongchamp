@@ -104,6 +104,11 @@ plr2_down={
  ]
 }
 
+[locale]
+
+translations=PoolStringArray( "res://fonts&text/text.en.translation", "res://fonts&text/text.ru.translation" )
+locale_filter=[ 1, [  ] ]
+
 [physics]
 
 common/enable_pause_aware_picking=true
