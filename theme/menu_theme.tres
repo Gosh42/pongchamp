@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=17 format=2]
+[gd_resource type="Theme" load_steps=23 format=2]
 
 [ext_resource path="res://fonts&text/goshpxfont2.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://theme/button_disabled.tres" type="StyleBox" id=2]
@@ -13,8 +13,16 @@
 [ext_resource path="res://gfx/button_off_disabled.png" type="Texture" id=11]
 [ext_resource path="res://theme/tab_bg.tres" type="StyleBox" id=12]
 [ext_resource path="res://theme/tab_fg.tres" type="StyleBox" id=13]
-[ext_resource path="res://theme/panel2.tres" type="StyleBox" id=14]
+[ext_resource path="res://theme/hslider_slider.tres" type="StyleBox" id=14]
 [ext_resource path="res://theme/tab_disabled.tres" type="StyleBox" id=15]
+[ext_resource path="res://gfx/hslider_tick.png" type="Texture" id=16]
+[ext_resource path="res://gfx/hslider_grabber_highlight.png" type="Texture" id=17]
+[ext_resource path="res://gfx/hslider_grabber.png" type="Texture" id=18]
+[ext_resource path="res://gfx/hslider_grabber_disabled.png" type="Texture" id=19]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -42,8 +50,15 @@ CheckButton/icons/on = ExtResource( 9 )
 CheckButton/icons/on_disabled = ExtResource( 10 )
 CheckButton/styles/normal = ExtResource( 3 )
 CheckButton/styles/pressed = ExtResource( 3 )
+HSlider/icons/grabber = ExtResource( 18 )
+HSlider/icons/grabber_disabled = ExtResource( 19 )
+HSlider/icons/grabber_highlight = ExtResource( 17 )
+HSlider/icons/tick = ExtResource( 16 )
+HSlider/styles/grabber_area = SubResource( 2 )
+HSlider/styles/grabber_area_highlight = SubResource( 3 )
+HSlider/styles/slider = ExtResource( 14 )
 Panel/styles/panel = ExtResource( 7 )
-TabContainer/styles/panel = ExtResource( 14 )
+TabContainer/styles/panel = ExtResource( 7 )
 TabContainer/styles/tab_bg = ExtResource( 12 )
 TabContainer/styles/tab_disabled = ExtResource( 15 )
 TabContainer/styles/tab_fg = ExtResource( 13 )

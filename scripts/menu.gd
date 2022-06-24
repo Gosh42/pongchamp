@@ -1,10 +1,13 @@
 extends Control
 
-onready var game_settings = $"/root/title screen/game settings/"
+var game_settings
+var info_window
 
 func _ready():
 	if get_tree().current_scene.name == "title screen":
 		$"VBoxContainer/play button".grab_focus()
+		game_settings = $"game settings/"
+		info_window = $"about"
 	
 func open_game_settings():
 	game_settings.popup()
@@ -12,7 +15,7 @@ func open_game_settings():
 	#get_tree().change_scene("res://scenes/game.tscn")
 	
 func information():
-	print("открылись бы настройки\nно я их ещё не запрограммировал")
+	info_window.popup()
 	
 func restart():
 	get_tree().paused = false

@@ -3,16 +3,25 @@ LANG_SWAP,ENGLISH,РУССКИЙ
 PLAY,Play,Играть
 START_GAME,Start game,Начать игру
 ABOUT,About,Об игре
+CHANGE_TABS,Change tabs,Смена вкладок
+ABOUT_TEXT,"Behold - sort of a remake of one of the video games of all time. This project is made by Gosha, mostly for learning purposes. This is a rather incomplete and barebones version, but it's already playable enough, so have fun, I guess.
+
+(Oh and BTW Atari if you're reading this pls don't sue me for using the word ""po*g"" in the title, I can change it to ""pingchamp"" you want)","Встречайте: что-то типа ремейка одной из игр всех времён. Данный проект сделал Gosha в целях обучения. Это незаконченная версия, но она уже достаточно играбельна, так что веселитесь, наверн.
+
+(А, Atari, если вы это читаете, то не судите пж за слово ""po*g"" в названии, если хотите, могу поменять на ""pingchamp"")"
+CREDITS,Credits,Титры
+CREDITS_TEXT,"Software used:
+Game Engine - Godot
+Image Editor - Aseprite","Использованные программы:
+Игровой движок - Godot
+Редактор изображений - Aseprite"
 SCORE_TO_WIN,Score to win:,Очков для победы:
 1_PLAYABLE,Player 1,Игрок 1
 2_PLAYABLE,Player 2,Игрок 2
-INFO_TEXT,"Behold - sort of a remake of one of the video games of all time. This project is made by Gosha, mostly for learning purposes. This is a very incomplete and barebones version, but it's already playable enough, so have fun, I guess.","Встречайте: что-то типа ремейка одной из игр всех времён.
-Данный проект сделан Gosha в целях обучения. Это незаконченная версия, но она уже достаточно играбельна, так что веселитесь наверн."
-ATARI_PLS,"(atari pls don't sue me for the word ""po*g"")
-(i can rename it to pingchamp if you want)","(atari пж не судите за слово ""po*g"")
-(если хотите могу переименовать в pingchamp)"
 PAUSE, Paused, Пауза
 RESUME,Continue,Продолжить
 QUIT_TO_MENU,Quit to menu,Выйти в меню
-END_CONGRATS,"Player {n} won","Игрок {n} победил"
+END_CONGRATS,"Player {n} won!","Игрок {n} подебил!"
 RESTART,Play again,Сыграть ещё раз
+TAB_3,Tab 3,Вкладка 3
+TAB3_TEXT,"I wanted to test switching tabs but didn't know what to put in the third one, so here's badly drawn Lea from CrossCode (it's a good game I recommend)","Я хотел протестить смену вкладок, и не знал, что поместить в третью. Поэтому вот плохо нарисованная Лея из CrossCode (хорошая игра, всем советую)"

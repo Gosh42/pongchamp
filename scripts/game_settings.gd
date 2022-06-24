@@ -10,6 +10,10 @@ onready var score_slider = $"/root/title screen/game settings/score_slider"
 
 var config = ConfigFile.new()
 
+func _process(delta):
+	if Input.is_action_just_pressed("ui_cancel"):
+		_on_close_button_pressed()
+	
 
 func _on_play_button_pressed():
 	_on_save_button_pressed()

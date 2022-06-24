@@ -57,5 +57,6 @@ func spawn():
 		angle = 30 * rng.randi_range(1, 11)
 	angle = deg2rad(angle)
 	
-	yield(get_tree().create_timer(1.0), "timeout")
+	$Timer.start(1.0); yield($Timer, "timeout")
+	#yield(get_tree().create_timer(1.0), "timeout")
 	velocity = Vector2(cos(angle), -sin(angle)).normalized()

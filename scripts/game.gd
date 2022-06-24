@@ -29,14 +29,14 @@ func add_score(side):
 
 func game_over(side):
 	get_tree().paused = true
-	$"UI/gameover/VBoxContainer/restart button".grab_focus()
 	ball.hide()
 	yield(get_tree().create_timer(0.5), "timeout")
 	
 	$UI/GUI.hide()
 	gameover_screen.show()
-	$"UI/gameover/winner text".text = "Player %s wins!" % (side + 1)
-	print("player %s win" % side)
+	$"UI/gameover/VBoxContainer/restart button".grab_focus()
+	$"UI/gameover/winner text".text = tr("END_CONGRATS").format({n=side+1})
+	print("player %s win" % (side+1))
 
 
 func pause_button_pressed():
