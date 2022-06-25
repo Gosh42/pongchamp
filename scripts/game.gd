@@ -12,8 +12,12 @@ var finish_score = 1
 func _ready():
 	pause.hide()
 	gameover_screen.hide()
+	
 	paddle_left.playable = SaveConfig.load_value("game", "player1_playable")
+	$UI/GUI/touch_ctrl_left.visible = paddle_left.playable
 	paddle_right.playable = SaveConfig.load_value("game", "player2_playable")
+	$UI/GUI/touch_ctrl_right.visible = paddle_right.playable
+	
 	finish_score = SaveConfig.load_value("game", "required_score")
 
 func _process(delta):
