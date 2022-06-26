@@ -4,6 +4,11 @@ var game_settings
 var info_window
 
 func _ready():
+	if "en" in TranslationServer.get_locale():
+		$"VBoxContainer/language button".icon = preload("res://gfx/flag_ru.png")
+	else:
+		$"VBoxContainer/language button".icon = preload("res://gfx/flag_en.png")
+		
 	if get_tree().current_scene.name == "title screen":
 		$"VBoxContainer/play button".grab_focus()
 		game_settings = $"game settings/"
