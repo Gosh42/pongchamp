@@ -1,9 +1,18 @@
 extends Popup
 
 onready var tab_container = $TabContainer
+onready var anim = $AnimationPlayer
 
-func _on_close_button_button_down():
-	hide()
+
+func _process(delta):
+	if Input.is_action_just_pressed("ui_cancel"):
+		_on_close_button_down()
+		
+	if not visible:
+		set_process(false)
+
+func _on_close_button_down():
+	anim.play("menu_disappear")
 
 
 func change_tabs(next_tab):

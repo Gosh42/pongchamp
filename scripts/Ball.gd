@@ -3,7 +3,8 @@ extends KinematicBody2D
 var rng = RandomNumberGenerator.new()
 signal add_score
 
-onready var sprites = [preload("res://gfx/ball_normal.png"), \
+onready var sprite = $Sprite
+onready var sprite_images = [preload("res://gfx/ball_normal.png"), \
 	preload("res://gfx/ball_coconut.png")]
 onready var startpos = global_position
 
@@ -14,6 +15,7 @@ var velocity = Vector2.ZERO
 
 
 func _ready():
+# warning-ignore:return_value_discarded
 	connect("add_score", get_owner(), "add_score")
 	rng.randomize()
 	spawn()
@@ -42,12 +44,12 @@ func _physics_process(delta):
 			velocity = Vector2(sign(velocity.x) * cos(PI/3), \
 				sign(velocity.y) * sin(PI/3))
 				
-	$Sprite.rotate(velocity.y / 5)
+	sprite.rotate(velocity.y / 5)
 
 func spawn():
 	
 	global_position = startpos
-	$Sprite.texture = sprites[clamp(rng.randi_range(0, 3), 0, 1)]
+	sprite.texture = sprite_images[clamp(rng.randi_range(-2, 1), 0, 1)]
 	
 	speed = default_speed
 	velocity = Vector2.ZERO

@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://theme/menu_theme.tres" type="Theme" id=1]
 [ext_resource path="res://scripts/about.gd" type="Script" id=2]
 [ext_resource path="res://badly_drawn_lea.png" type="Texture" id=3]
+[ext_resource path="res://gfx/anim/menu_appear.tres" type="Animation" id=4]
+[ext_resource path="res://gfx/anim/menu_disappear.tres" type="Animation" id=5]
 
 [node name="about" type="Popup"]
-visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
+popup_exclusive = true
 script = ExtResource( 2 )
 
 [node name="TabContainer" type="TabContainer" parent="."]
@@ -140,6 +142,10 @@ text = "CHANGE_TABS"
 align = 1
 valign = 1
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/menu_appear = ExtResource( 4 )
+anims/menu_disappear = ExtResource( 5 )
+
 [connection signal="button_down" from="tab_left" to="." method="change_tabs" binds= [ -1 ]]
 [connection signal="button_down" from="tab_right" to="." method="change_tabs" binds= [ 1 ]]
-[connection signal="button_down" from="close_button" to="." method="_on_close_button_button_down"]
+[connection signal="button_down" from="close_button" to="." method="_on_close_button_down"]

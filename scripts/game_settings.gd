@@ -6,16 +6,28 @@ onready var player1_check = $"/root/title screen/game settings/CheckButton"
 onready var player2_check = $"/root/title screen/game settings/CheckButton2"
 onready var score_label = $"/root/title screen/game settings/score_label"
 onready var score_slider = $"/root/title screen/game settings/score_slider"
+onready var anim = $"/root/title screen/game settings/AnimationPlayer"
 
 
 var config = ConfigFile.new()
+
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		_on_close_button_pressed()
 	
+	if not visible:
+		set_process(false)
+
 
 func _on_play_button_pressed():
+	var tween = get_parent().get_node("Tween")
+	tween.interpolate_property(get_parent().get_node("CanvasLayer/fade_panel"),
+		"modulate", Color(1,1,1,0), Color8(22, 0, 39, 255),
+		0.5, Tween.TRANS_SINE, Tween.EASE_OUT)
+	tween.start()
+	$Timer.start(0.5); yield($Timer, "timeout")
+	
 	_on_save_button_pressed()
 	get_tree().change_scene("res://scenes/game.tscn")
 
@@ -40,7 +52,7 @@ func _on_load_button_pressed():
 	
 	var okay = config.load(SAVE_PATH)
 	if okay != OK:
-		print("among us")
+		print("game_settings.gd line 48 != OK")
 		_on_save_button_pressed()
 	
 	player1_check.pressed = config.get_value("game", "player1_playable", true)
@@ -59,7 +71,9 @@ func load_value(section, key):
 	return config.get_value(section, key)
 
 func _on_close_button_pressed():
-	hide()
+
+	_on_save_button_pressed()
+	anim.play("menu_disappear")
 
 
 func _on_HSlider_value_changed(value):
