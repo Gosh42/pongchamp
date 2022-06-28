@@ -41,8 +41,9 @@ func quit():
 	get_tree().change_scene("res://scenes/title_screen.tscn")
 
 func resume():
-	get_tree().paused = false
-	hide()
+	get_parent().get_parent().pause_button_pressed()
+#	get_tree().paused = false
+#	hide()
 
 
 func language_swap():

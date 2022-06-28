@@ -45,6 +45,11 @@ func game_over(side):
 
 func pause_button_pressed():
 	get_tree().paused = not get_tree().paused
-	pause.visible = not pause.visible
+	var pause_anim = pause.get_node("AnimationPlayer")
+	
 	if get_tree().paused:
+		pause.visible = true
+		pause_anim.play("menu_appear")
 		pause.get_node("VBoxContainer/resume button").grab_focus()
+	else:
+		pause_anim.play("menu_disappear")
