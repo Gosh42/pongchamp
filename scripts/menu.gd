@@ -33,10 +33,14 @@ func open_menu_window(menu_number):
 
 
 func restart():
+	fade_out_in_game()
+	$Timer.start(0.75); yield($Timer, "timeout")
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 	
 func quit():
+	fade_out_in_game()
+	$Timer.start(0.75); yield($Timer, "timeout")
 	get_tree().paused = false
 	get_tree().change_scene("res://scenes/title_screen.tscn")
 
@@ -45,6 +49,17 @@ func resume():
 #	get_tree().paused = false
 #	hide()
 
+func fade_out_in_game():
+	tween = get_parent().get_parent().get_node("Tween")
+	tween.interpolate_property(get_parent().get_parent().get_node("fade_in/fade_panel"), "modulate", 
+		Color(1,1,1,0), Color8(22, 0, 39, 255), 
+		0.75, Tween.TRANS_SINE, Tween.EASE_OUT)
+	tween.start()
+
+	if get_node_or_null("VBoxContainer/resume button") != null:
+		$"VBoxContainer/resume button".disabled = true
+	$"VBoxContainer/restart button".disabled = true
+	$"VBoxContainer/quit button".disabled = true
 
 func language_swap():
 	if "en" in TranslationServer.get_locale():

@@ -19,40 +19,45 @@ anchor_bottom = 1.0
 mouse_filter = 1
 script = ExtResource( 5 )
 
+[node name="text" type="Label" parent="."]
+margin_left = -1.0
+margin_top = 108.0
+margin_right = 641.0
+margin_bottom = 141.0
+rect_pivot_offset = Vector2( 21, 17 )
+custom_fonts/font = SubResource( 1 )
+text = "PAUSED"
+align = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -80.0
-margin_top = -72.5
+margin_top = -18.5
 margin_right = 80.0
-margin_bottom = 72.5
+margin_bottom = 126.5
 size_flags_vertical = 3
 custom_constants/separation = 21
 
-[node name="paused text" type="Label" parent="VBoxContainer"]
-margin_right = 160.0
-margin_bottom = 33.0
-rect_pivot_offset = Vector2( 21, 17 )
-custom_fonts/font = SubResource( 1 )
-text = "PAUSED"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="resume button" type="Button" parent="VBoxContainer"]
-margin_top = 54.0
 margin_right = 160.0
-margin_bottom = 86.0
+margin_bottom = 32.0
 theme = ExtResource( 2 )
 text = "RESUME"
 
-[node name="Button" type="Button" parent="VBoxContainer"]
-margin_top = 107.0
+[node name="restart button" type="Button" parent="VBoxContainer"]
+margin_top = 53.0
 margin_right = 160.0
-margin_bottom = 139.0
+margin_bottom = 85.0
+theme = ExtResource( 2 )
+text = "RESTART"
+
+[node name="quit button" type="Button" parent="VBoxContainer"]
+margin_top = 106.0
+margin_right = 160.0
+margin_bottom = 138.0
 theme = ExtResource( 2 )
 text = "QUIT_TO_MENU"
 
@@ -60,5 +65,9 @@ text = "QUIT_TO_MENU"
 anims/menu_appear = ExtResource( 3 )
 anims/menu_disappear = ExtResource( 4 )
 
+[node name="Timer" type="Timer" parent="."]
+pause_mode = 2
+
 [connection signal="button_down" from="VBoxContainer/resume button" to="." method="resume"]
-[connection signal="button_down" from="VBoxContainer/Button" to="." method="quit"]
+[connection signal="button_down" from="VBoxContainer/restart button" to="." method="restart"]
+[connection signal="button_down" from="VBoxContainer/quit button" to="." method="quit"]
