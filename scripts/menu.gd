@@ -53,7 +53,7 @@ func fade_out_in_game():
 	tween = get_parent().get_parent().get_node("Tween")
 	tween.interpolate_property(get_parent().get_parent().get_node("fade_in/fade_panel"), "modulate", 
 		Color(1,1,1,0), Color8(22, 0, 39, 255), 
-		0.75, Tween.TRANS_SINE, Tween.EASE_OUT)
+		0.70, Tween.TRANS_SINE, Tween.EASE_OUT)
 	tween.start()
 
 	if get_node_or_null("VBoxContainer/resume button") != null:

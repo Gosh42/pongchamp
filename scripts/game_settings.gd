@@ -24,7 +24,7 @@ func _on_play_button_pressed():
 	var tween = get_parent().get_node("Tween")
 	tween.interpolate_property(get_parent().get_node("CanvasLayer/fade_panel"),
 		"modulate", Color(1,1,1,0), Color8(22, 0, 39, 255),
-		0.5, Tween.TRANS_SINE, Tween.EASE_OUT)
+		0.4, Tween.TRANS_SINE, Tween.EASE_OUT)
 	tween.start()
 	$Timer.start(0.5); yield($Timer, "timeout")
 	
