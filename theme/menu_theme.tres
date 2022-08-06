@@ -20,15 +20,15 @@
 [ext_resource path="res://gfx/hslider_grabber.png" type="Texture" id=18]
 [ext_resource path="res://gfx/hslider_grabber_disabled.png" type="Texture" id=19]
 
-[sub_resource type="StyleBoxEmpty" id=2]
-
-[sub_resource type="StyleBoxEmpty" id=3]
-
 [sub_resource type="DynamicFont" id=1]
 size = 20
 extra_spacing_top = -2
 extra_spacing_bottom = -4
 font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
 
 [resource]
 default_font = SubResource( 1 )
@@ -38,7 +38,7 @@ Button/colors/font_color_focus = Color( 1, 0.827451, 0.458824, 1 )
 Button/colors/font_color_hover = Color( 0.988235, 0.690196, 0.345098, 1 )
 Button/colors/font_color_pressed = Color( 1, 0.654902, 0, 1 )
 Button/constants/hseparation = 8
-Button/fonts/font = null
+Button/fonts/font = SubResource( 1 )
 Button/styles/disabled = ExtResource( 2 )
 Button/styles/focus = ExtResource( 5 )
 Button/styles/hover = ExtResource( 6 )

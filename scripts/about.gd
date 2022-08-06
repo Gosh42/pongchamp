@@ -4,7 +4,7 @@ onready var tab_container = $TabContainer
 onready var anim = $AnimationPlayer
 
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		_on_close_button_down()
 		

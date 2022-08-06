@@ -12,7 +12,7 @@ onready var anim = $"/root/title screen/game settings/AnimationPlayer"
 var config = ConfigFile.new()
 
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		_on_close_button_pressed()
 	
@@ -29,6 +29,7 @@ func _on_play_button_pressed():
 	$Timer.start(0.5); yield($Timer, "timeout")
 	
 	_on_save_button_pressed()
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://scenes/game.tscn")
 
 

@@ -7,6 +7,7 @@
 [ext_resource path="res://gfx/anim/menu_disappear.tres" type="Animation" id=5]
 
 [node name="about" type="Popup"]
+visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 popup_exclusive = true
@@ -62,7 +63,6 @@ margin_top = 7.0
 margin_right = -13.0
 margin_bottom = -54.0
 text = "CREDITS_TEXT"
-align = 3
 valign = 1
 autowrap = true
 

@@ -22,6 +22,7 @@ func _ready():
 	
 	finish_score = SaveConfig.load_value("game", "required_score")
 	
+	$fade_in/fade_panel.show()
 	tween.interpolate_property($fade_in/fade_panel, "modulate", 
 		Color8(22, 0, 39, 255), Color(1,1,1,0), 
 		0.75, Tween.TRANS_SINE, Tween.EASE_OUT)

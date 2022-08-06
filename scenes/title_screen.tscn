@@ -23,7 +23,8 @@ script = ExtResource( 5 )
 layer = 2
 
 [node name="fade_panel" type="Panel" parent="CanvasLayer"]
-modulate = Color( 0.184314, 0.00392157, 0.152941, 0 )
+visible = false
+modulate = Color( 0.0862745, 0.00392157, 0.152941, 1 )
 margin_left = -386.0
 margin_top = -211.0
 margin_right = 1053.0

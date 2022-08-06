@@ -6,6 +6,7 @@ var tween
 
 func _ready():
 	if get_tree().current_scene.name == "title screen":
+		$CanvasLayer/fade_panel.show()
 		tween = $Tween
 		tween.interpolate_property($CanvasLayer/fade_panel, "modulate", 
 			Color8(22, 0, 39, 255), Color(1,1,1,0), 
@@ -36,12 +37,14 @@ func restart():
 	fade_out_in_game()
 	$Timer.start(0.75); yield($Timer, "timeout")
 	get_tree().paused = false
+# warning-ignore:return_value_discarded
 	get_tree().reload_current_scene()
 	
 func quit():
 	fade_out_in_game()
 	$Timer.start(0.75); yield($Timer, "timeout")
 	get_tree().paused = false
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://scenes/title_screen.tscn")
 
 func resume():
@@ -67,4 +70,5 @@ func language_swap():
 	else:
 		TranslationServer.set_locale("en")
 	
+# warning-ignore:return_value_discarded
 	get_tree().reload_current_scene()
