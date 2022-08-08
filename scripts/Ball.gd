@@ -37,6 +37,7 @@ func _physics_process(delta):
 			speed += round(collision.collider.velocity.y /5.5* sign(velocity.y))
 			speed = clamp(speed, default_speed, default_speed * 3)
 			print(speed)
+			collision.collider.anim_shield.play("shield_knockback")
 		
 		velocity = velocity.bounce(collision.normal)
 		
@@ -59,12 +60,18 @@ func spawn():
 		angle = 30 * rng.randi_range(1, 11)
 	angle = deg2rad(angle)
 	
+	$"Sprite".modulate = Color(1, 1, 1, 0)
 	var tween = $"Tween"
+	var particle = get_node("/root/game/particles/ball_materialise")
+	
+	particle.emitting = true
+	$Timer.start(particle.lifetime / particle.speed_scale / 0.9); yield($Timer, "timeout")
+	
 	tween.interpolate_property($"Sprite", "modulate", 
 		Color8(22, 0, 39, 0), Color(1, 1, 1, 1), 
 		0.50, Tween.TRANS_SINE, Tween.EASE_OUT)
 	tween.start()
 	
-	$Timer.start(1.0); yield($Timer, "timeout")
+	$Timer.start(0.5); yield($Timer, "timeout")
 	#yield(get_tree().create_timer(1.0), "timeout")
 	velocity = Vector2(cos(angle), -sin(angle)).normalized()

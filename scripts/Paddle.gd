@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 onready var start_pos = global_position.x
 onready var anim = $AnimationPlayer
+onready var anim_shield = $AnimationPlayerShield
 onready var ball = get_parent().get_node("ball")
 onready var ai_side = 1 if name.begins_with('l') else -1
 export var playable = true
@@ -41,11 +42,12 @@ func _physics_process(delta):
 		else:
 			anim.play("walk_up")
 	
+# warning-ignore:return_value_discarded
 	move_and_slide(velocity)
 	global_position.x = start_pos
 	
 func accelerate(amount):
-	velocity = (velocity + amount).clamped(max_speed)
+	velocity = (velocity + amount).limit_length(max_speed)
 
 func decelerate(amount):
 	if velocity.length() > amount:
