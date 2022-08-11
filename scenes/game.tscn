@@ -10,6 +10,7 @@
 [ext_resource path="res://scenes/pause.tscn" type="PackedScene" id=8]
 [ext_resource path="res://theme/menu_theme.tres" type="Theme" id=9]
 [ext_resource path="res://gfx/pause_icon.png" type="Texture" id=10]
+[ext_resource path="res://scripts/camera.gd" type="Script" id=11]
 [ext_resource path="res://paddleman_recolour.gdshader" type="Shader" id=12]
 
 [sub_resource type="DynamicFont" id=5]
@@ -20,16 +21,12 @@ font_data = ExtResource( 4 )
 
 [sub_resource type="Gradient" id=7]
 interpolation_mode = 2
-offsets = PoolRealArray( 0, 0.349265, 1 )
-colors = PoolColorArray( 0.747995, 0.800781, 0.125122, 1, 0.137324, 0.716297, 0.716297, 1, 0.2, 0.282353, 0.34902, 1 )
+colors = PoolColorArray( 0.747995, 0.800781, 0.125122, 1, 0.137324, 0.716297, 0.716297, 1 )
 
 [sub_resource type="Gradient" id=8]
 interpolation_mode = 2
-offsets = PoolRealArray( 0.507353, 1 )
-colors = PoolColorArray( 0.380476, 0.474322, 0.550293, 1, 1, 0.84668, 0, 0 )
-
-[sub_resource type="Gradient" id=9]
-colors = PoolColorArray( 1, 1, 1, 1, 0.772311, 0.599361, 0.924316, 1 )
+offsets = PoolRealArray( 0.408088, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.602222, 0.160156, 1, 0 )
 
 [sub_resource type="ShaderMaterial" id=6]
 shader = ExtResource( 12 )
@@ -190,6 +187,8 @@ margin_bottom = 180.0
 pause_mode = 1
 
 [node name="ball_materialise" type="CPUParticles2D" parent="particles"]
+pause_mode = 1
+unique_name_in_owner = true
 position = Vector2( 320, 180 )
 emitting = false
 amount = 48
@@ -210,27 +209,31 @@ scale_amount_random = 1.0
 color_ramp = SubResource( 7 )
 
 [node name="ball_explode" type="CPUParticles2D" parent="particles"]
+pause_mode = 1
+unique_name_in_owner = true
 position = Vector2( 145, -127 )
 emitting = false
-amount = 32
-lifetime = 1.5
+amount = 128
+lifetime = 1.25
 one_shot = true
-speed_scale = 3.0
-explosiveness = 0.4
+speed_scale = 2.0
+explosiveness = 0.6
 randomness = 0.6
 lifetime_randomness = 0.7
 draw_order = 1
 emission_shape = 1
-emission_sphere_radius = 25.0
-spread = 35.0
+emission_sphere_radius = 45.0
+spread = 18.74
 gravity = Vector2( 0, 0 )
-initial_velocity = 150.0
-initial_velocity_random = 0.5
+initial_velocity = 300.0
+initial_velocity_random = 0.8
 angular_velocity = 45.0
+damping = 150.0
+damping_random = 0.5
 scale_amount = 10.0
 scale_amount_random = 0.5
 color_ramp = SubResource( 8 )
-color_initial_ramp = SubResource( 9 )
+color_initial_ramp = SubResource( 7 )
 
 [node name="objects" type="CanvasLayer" parent="."]
 pause_mode = 1
@@ -270,4 +273,13 @@ shape = SubResource( 4 )
 
 [node name="Tween" type="Tween" parent="."]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
+anchor_mode = 0
+current = true
+script = ExtResource( 11 )
+
+[node name="camera timer" type="Timer" parent="Camera2D"]
+
 [connection signal="button_down" from="UI/GUI/pause_button" to="." method="pause_button_pressed"]
+[connection signal="timeout" from="Camera2D/camera timer" to="Camera2D" method="_on_camera_timer_timeout"]

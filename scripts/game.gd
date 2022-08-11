@@ -41,6 +41,7 @@ func add_score(side):
 		game_over(side)
 
 func game_over(side):
+	$"%ball_explode".pause_mode = Node.PAUSE_MODE_PROCESS
 	get_tree().paused = true
 	ball.hide()
 	yield(get_tree().create_timer(0.5), "timeout")

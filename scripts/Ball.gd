@@ -4,6 +4,12 @@ var rng = RandomNumberGenerator.new()
 signal add_score
 
 onready var sprite = $Sprite
+onready var timer = $Timer
+onready var tween = $Tween
+onready var camera = $"%Camera2D"
+onready var appear_particle = $"%ball_materialise"
+onready var perish_particle = $"%ball_explode"
+
 onready var sprite_images = [preload("res://gfx/ball_normal.png"), \
 	preload("res://gfx/ball_coconut.png")]
 onready var startpos = global_position
@@ -24,13 +30,20 @@ func _physics_process(delta):
 	var collision = move_and_collide(speed * velocity * delta)
 	
 	if collision:
+		if speed > 350:
+			camera.start_shaking(speed / 300, 0.05) 
+		
 		if collision.collider.name == "death":
+			camera.start_shaking(10, 0.25)
+			perish_particle.global_position = global_position
+			perish_particle.emitting = true
+			
 			if global_position.x < startpos.x:
 				emit_signal("add_score", 1)
-				print("goal_left")
+				perish_particle.direction.x = 1
 			else:
 				emit_signal("add_score", 0)
-				print("goal_right")
+				perish_particle.direction.x = -1
 			spawn()
 				
 		elif not collision.collider.name == "walls":
@@ -60,18 +73,19 @@ func spawn():
 		angle = 30 * rng.randi_range(1, 11)
 	angle = deg2rad(angle)
 	
-	$"Sprite".modulate = Color(1, 1, 1, 0)
-	var tween = $"Tween"
-	var particle = get_node("/root/game/particles/ball_materialise")
+	sprite.modulate = Color(1, 1, 1, 0)
 	
-	particle.emitting = true
-	$Timer.start(particle.lifetime / particle.speed_scale / 0.9); yield($Timer, "timeout")
+	appear_particle.emitting = true
 	
-	tween.interpolate_property($"Sprite", "modulate", 
+	timer.start(appear_particle.lifetime / appear_particle.speed_scale / 0.9)
+	yield(timer, "timeout")
+	
+	tween.interpolate_property(sprite, "modulate", 
 		Color8(22, 0, 39, 0), Color(1, 1, 1, 1), 
 		0.50, Tween.TRANS_SINE, Tween.EASE_OUT)
 	tween.start()
 	
-	$Timer.start(0.5); yield($Timer, "timeout")
-	#yield(get_tree().create_timer(1.0), "timeout")
+	timer.start(0.5)
+	yield(timer, "timeout")
+	
 	velocity = Vector2(cos(angle), -sin(angle)).normalized()
