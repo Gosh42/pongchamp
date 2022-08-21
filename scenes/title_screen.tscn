@@ -83,7 +83,6 @@ expand_icon = true
 [node name="game settings" parent="." instance=ExtResource( 6 )]
 
 [node name="about" parent="." instance=ExtResource( 2 )]
-visible = false
 
 [node name="Tween" type="Tween" parent="."]
 

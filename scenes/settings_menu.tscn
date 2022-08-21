@@ -8,7 +8,7 @@
 [ext_resource path="res://gfx/anim/menu_disappear.tres" type="Animation" id=6]
 
 [node name="game settings" type="Popup"]
-modulate = Color( 0.160784, 0, 0.286275, 0 )
+visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 2 )
@@ -26,17 +26,33 @@ margin_right = 255.0
 margin_bottom = 152.0
 theme = ExtResource( 2 )
 
+[node name="fullscreen_toggle_button" type="CheckButton" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -91.0
+margin_top = 46.0
+margin_right = 91.0
+margin_bottom = 90.0
+focus_neighbour_left = NodePath("../CheckButton")
+focus_neighbour_top = NodePath("../play_button")
+focus_neighbour_right = NodePath("../CheckButton2")
+focus_neighbour_bottom = NodePath("../CheckButton")
+focus_next = NodePath("../CheckButton")
+focus_previous = NodePath("../close_button")
+custom_styles/hover_pressed = ExtResource( 3 )
+text = "FULLSCREEN"
+
 [node name="CheckButton" type="CheckButton" parent="."]
 margin_left = 75.0
 margin_top = 158.0
 margin_right = 257.0
 margin_bottom = 202.0
 focus_neighbour_left = NodePath("../CheckButton2")
-focus_neighbour_top = NodePath("../play_button")
+focus_neighbour_top = NodePath("../fullscreen_toggle_button")
 focus_neighbour_right = NodePath("../CheckButton2")
 focus_neighbour_bottom = NodePath("../score_slider")
 focus_next = NodePath("../CheckButton2")
-focus_previous = NodePath("../close_button")
+focus_previous = NodePath("../fullscreen_toggle_button")
 custom_styles/hover_pressed = ExtResource( 3 )
 text = "1_PLAYABLE"
 
@@ -52,7 +68,7 @@ margin_top = 158.0
 margin_right = 563.0
 margin_bottom = 202.0
 focus_neighbour_left = NodePath("../CheckButton")
-focus_neighbour_top = NodePath("../close_button")
+focus_neighbour_top = NodePath("../fullscreen_toggle_button")
 focus_neighbour_right = NodePath("../CheckButton")
 focus_neighbour_bottom = NodePath("../score_slider")
 focus_next = NodePath("../score_slider")
@@ -122,7 +138,7 @@ margin_bottom = -48.0
 focus_neighbour_left = NodePath("../close_button")
 focus_neighbour_top = NodePath("../score_slider")
 focus_neighbour_right = NodePath("../close_button")
-focus_neighbour_bottom = NodePath("../CheckButton")
+focus_neighbour_bottom = NodePath("../fullscreen_toggle_button")
 focus_next = NodePath("../close_button")
 focus_previous = NodePath("../score_slider")
 text = "START_GAME"
@@ -135,8 +151,8 @@ margin_bottom = 313.0
 focus_neighbour_left = NodePath("../play_button")
 focus_neighbour_top = NodePath("../score_slider")
 focus_neighbour_right = NodePath("../play_button")
-focus_neighbour_bottom = NodePath("../CheckButton2")
-focus_next = NodePath("../CheckButton")
+focus_neighbour_bottom = NodePath("../fullscreen_toggle_button")
+focus_next = NodePath("../fullscreen_toggle_button")
 focus_previous = NodePath("../play_button")
 text = "X"
 
@@ -161,6 +177,7 @@ anims/menu_disappear = ExtResource( 6 )
 
 [node name="Timer" type="Timer" parent="."]
 
+[connection signal="button_down" from="fullscreen_toggle_button" to="." method="_on_fullscreen_toggle_button_button_down"]
 [connection signal="value_changed" from="score_slider" to="." method="_on_HSlider_value_changed"]
 [connection signal="pressed" from="play_button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="close_button" to="." method="_on_close_button_pressed"]

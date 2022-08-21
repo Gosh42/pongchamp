@@ -7,12 +7,15 @@ onready var player2_check = $"/root/title screen/game settings/CheckButton2"
 onready var score_label = $"/root/title screen/game settings/score_label"
 onready var score_slider = $"/root/title screen/game settings/score_slider"
 onready var anim = $"/root/title screen/game settings/AnimationPlayer"
+onready var fullscreen_check = $"/root/title screen/game settings/fullscreen_toggle_button"
 
 
 var config = ConfigFile.new()
 
 
 func _process(_delta):
+	if get_node("/root/title screen/game settings").visible:
+		fullscreen_check.pressed = OS.window_fullscreen
 	if Input.is_action_just_pressed("ui_cancel"):
 		_on_close_button_pressed()
 	
@@ -79,3 +82,8 @@ func _on_close_button_pressed():
 
 func _on_HSlider_value_changed(value):
 	score_label.text = str(value)
+
+
+func _on_fullscreen_toggle_button_button_down():
+	OS.window_fullscreen = !OS.window_fullscreen
+	

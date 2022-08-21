@@ -30,6 +30,7 @@ func open_menu_window(menu_number):
 	
 	if menu_number == 0:
 		game_settings._on_load_button_pressed()
+		game_settings.fullscreen_check.pressed = OS.window_fullscreen
 	#get_tree().change_scene("res://scenes/game.tscn")
 
 

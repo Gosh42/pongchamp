@@ -25,3 +25,4 @@ END_CONGRATS,"Player {n} won!","Игрок {n} подебил!"
 RESTART,Play again,Сыграть ещё раз
 TAB_3,Tab 3,Вкладка 3
 TAB3_TEXT,"I wanted to test switching tabs but didn't know what to put in the third one, so here's badly drawn Lea from CrossCode (it's a good game I recommend)","Я хотел протестить смену вкладок, и не знал, что поместить в третью. Поэтому вот плохо нарисованная Лея из CrossCode (хорошая игра, всем советую)"
+FULLSCREEN,Fullscreen,Полный экран
