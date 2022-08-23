@@ -8,7 +8,6 @@
 [ext_resource path="res://gfx/anim/menu_disappear.tres" type="Animation" id=6]
 
 [node name="game settings" type="Popup"]
-visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 2 )

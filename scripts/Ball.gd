@@ -6,12 +6,29 @@ signal add_score
 onready var sprite = $Sprite
 onready var timer = $Timer
 onready var tween = $Tween
+onready var sndplr_hit = $sound_player_hit
+onready var sndplr_appear = $sound_player_appear
+onready var sndplr_explode = $sound_player_explode
 onready var camera = $"%Camera2D"
 onready var appear_particle = $"%ball_materialise"
 onready var perish_particle = $"%ball_explode"
 
-onready var sprite_images = [preload("res://gfx/ball_normal.png"), \
-	preload("res://gfx/ball_coconut.png")]
+#onready var hit_sound = preload("res://audio/hit.wav")
+onready var appear_sounds = [
+	preload("res://audio/appear_01.wav"),
+	preload("res://audio/appear_07.wav"),
+	preload("res://audio/appear_09.wav")
+]
+onready var explosion_sounds = [
+	preload("res://audio/explosion.wav"),
+	preload("res://audio/explosion2.wav"),
+	preload("res://audio/explosion3.wav")
+]
+onready var sprite_images = [
+	preload("res://gfx/ball_normal.png"),
+	preload("res://gfx/ball_coconut.png")
+]
+
 onready var startpos = global_position
 
 var default_speed = 250
@@ -34,6 +51,8 @@ func _physics_process(delta):
 			camera.start_shaking(speed / 300, 0.05) 
 		
 		if collision.collider.name == "death":
+			play_important_sound(sndplr_explode, explosion_sounds)
+			
 			camera.start_shaking(10, 0.25)
 			perish_particle.global_position = global_position
 			perish_particle.emitting = true
@@ -51,6 +70,10 @@ func _physics_process(delta):
 			speed = clamp(speed, default_speed, default_speed * 3)
 			print(speed)
 			collision.collider.anim_shield.play("shield_knockback")
+		
+		sndplr_hit.pitch_scale = 1 + speed / 2000
+		sndplr_hit.volume_db + speed / 200
+		sndplr_hit.play()
 		
 		velocity = velocity.bounce(collision.normal)
 		
@@ -75,7 +98,11 @@ func spawn():
 	
 	sprite.modulate = Color(1, 1, 1, 0)
 	
+	timer.start(0.2)
+	yield(timer, "timeout")
+	
 	appear_particle.emitting = true
+	play_important_sound(sndplr_appear, appear_sounds)
 	
 	timer.start(appear_particle.lifetime / appear_particle.speed_scale / 0.9)
 	yield(timer, "timeout")
@@ -85,7 +112,13 @@ func spawn():
 		0.50, Tween.TRANS_SINE, Tween.EASE_OUT)
 	tween.start()
 	
-	timer.start(0.5)
+	timer.start(0.3)
 	yield(timer, "timeout")
 	
 	velocity = Vector2(cos(angle), -sin(angle)).normalized()
+
+func play_important_sound(sound_player, sound_list):
+	sound_player.stream = sound_list[randi() % sound_list.size()]
+	sound_player.pitch_scale = 1 + rand_range(-0.2, 0.2)
+	
+	sound_player.play()
