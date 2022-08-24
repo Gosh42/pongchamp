@@ -12,9 +12,11 @@ ABOUT_TEXT,"Behold - sort of a remake of one of the video games of all time. Thi
 CREDITS,Credits,Титры
 CREDITS_TEXT,"Software used:
 Game Engine - Godot
-Image Editor - Aseprite","Использованные программы:
+Image Editor - Aseprite
+Sound effect generator - LabChirp","Использованные программы:
 Игровой движок - Godot
-Редактор изображений - Aseprite"
+Редактор изображений - Aseprite
+Генератор звуковых эффектов - LabChirp"
 SCORE_TO_WIN,Score to win:,Очков для победы:
 1_PLAYABLE,Player 1,Игрок 1
 2_PLAYABLE,Player 2,Игрок 2

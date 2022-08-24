@@ -15,9 +15,12 @@ onready var perish_particle = $"%ball_explode"
 
 #onready var hit_sound = preload("res://audio/hit.wav")
 onready var appear_sounds = [
-	preload("res://audio/appear_01.wav"),
-	preload("res://audio/appear_07.wav"),
-	preload("res://audio/appear_09.wav")
+#	preload("res://audio/appear_01.wav"),
+#	preload("res://audio/appear_07.wav"),
+#	preload("res://audio/appear_09.wav"),
+	preload("res://audio/appear5.wav"),
+	preload("res://audio/appear4.wav"),
+	preload("res://audio/appear6.wav")
 ]
 onready var explosion_sounds = [
 	preload("res://audio/explosion.wav"),
