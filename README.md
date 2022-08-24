@@ -1,4 +1,4 @@
-# PongChamp
+# Pongchamp
 
 ### EN
 
