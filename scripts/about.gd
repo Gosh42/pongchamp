@@ -1,7 +1,7 @@
 extends Popup
 
 onready var tab_container = $TabContainer
-onready var anim = $AnimationPlayer
+onready var anim = $menu_anim_player
 
 
 func _process(_delta):

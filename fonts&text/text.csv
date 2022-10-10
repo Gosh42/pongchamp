@@ -20,6 +20,8 @@ Sound effect generator - LabChirp","Использованные програм�
 SCORE_TO_WIN,Score to win:,Очков для победы:
 1_PLAYABLE,Player 1,Игрок 1
 2_PLAYABLE,Player 2,Игрок 2
+CLR_RED,Red,Красный
+CLR_BLUE,Blue,Синий
 PAUSE, Paused, Пауза
 RESUME,Continue,Продолжить
 QUIT_TO_MENU,Quit to menu,Выйти в меню

@@ -1,0 +1,27 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type canvas_item;
+
+uniform vec4 bright: hint_color;
+uniform vec4 new_bright: hint_color;
+
+uniform vec4 normal: hint_color;
+uniform vec4 new_normal: hint_color;
+
+uniform vec4 dark: hint_color;
+uniform vec4 new_dark: hint_color;
+
+void fragment() {
+	vec4 clr = texture(TEXTURE, UV);
+	
+	if(clr == bright) {
+		clr = new_bright;
+	} else if (clr == normal) {
+		clr = new_normal;
+	} else if (clr == dark) {
+		clr = new_dark;
+	}
+	
+	COLOR = clr;
+}"

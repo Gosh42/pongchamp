@@ -2,12 +2,16 @@ extends Popup
 
 const SAVE_PATH = "user://save.cfg"
 
-onready var player1_check = $"/root/title screen/game settings/CheckButton"
-onready var player2_check = $"/root/title screen/game settings/CheckButton2"
+
+onready var player1_check = $"/root/title screen/game settings/P1_toggle"
+onready var player2_check = $"/root/title screen/game settings/P2_toggle"
+onready var player1_colour_option = $"/root/title screen/game settings/P1_colour_option"
+onready var player2_colour_option = $"/root/title screen/game settings/P2_colour_option"
 onready var score_label = $"/root/title screen/game settings/score_label"
 onready var score_slider = $"/root/title screen/game settings/score_slider"
-onready var anim = $"/root/title screen/game settings/AnimationPlayer"
+onready var anim = $"/root/title screen/game settings/menu_anim_player"
 onready var fullscreen_check = $"/root/title screen/game settings/fullscreen_toggle_button"
+
 
 
 var config = ConfigFile.new()
@@ -41,7 +45,9 @@ func _on_save_button_pressed():
 	config.set_value("game", "player1_playable", player1_check.pressed)
 	config.set_value("game", "player2_playable", player2_check.pressed)
 	config.set_value("game", "required_score", score_slider.value)
-
+	config.set_value("game", "player1_colour", player1_colour_option.selected)
+	config.set_value("game", "player2_colour", player2_colour_option.selected)
+	
 	config.save(SAVE_PATH)
 	
 	print("saved:")
@@ -56,11 +62,14 @@ func _on_load_button_pressed():
 	
 	var okay = config.load(SAVE_PATH)
 	if okay != OK:
-		print("game_settings.gd line 48 != OK")
+		print("game_settings.gd != OK")
 		_on_save_button_pressed()
 	
 	player1_check.pressed = config.get_value("game", "player1_playable", true)
 	player2_check.pressed = config.get_value("game", "player2_playable", true)
+	
+	player1_colour_option.selected = config.get_value("game", "player1_colour", 0)
+	player2_colour_option.selected = config.get_value("game", "player2_colour", 1)
 	
 	score_slider.set_value(config.get_value("game", "required_score", 12))
 	score_label.text = str(config.get_value("game", "required_score", 12))

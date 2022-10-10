@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://gfx/bg.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Paddle.tscn" type="PackedScene" id=2]
@@ -11,7 +11,8 @@
 [ext_resource path="res://theme/menu_theme.tres" type="Theme" id=9]
 [ext_resource path="res://gfx/pause_icon.png" type="Texture" id=10]
 [ext_resource path="res://scripts/camera.gd" type="Script" id=11]
-[ext_resource path="res://paddleman_recolour.gdshader" type="Shader" id=12]
+[ext_resource path="res://shaders/paddle_shader_material.tres" type="Material" id=12]
+[ext_resource path="res://shaders/paddle_shader.tres" type="Shader" id=13]
 
 [sub_resource type="DynamicFont" id=5]
 size = 24
@@ -28,16 +29,16 @@ interpolation_mode = 2
 offsets = PoolRealArray( 0.408088, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 0.602222, 0.160156, 1, 0 )
 
-[sub_resource type="ShaderMaterial" id=6]
-shader = ExtResource( 12 )
-shader_param/og_bright = Color( 1, 0, 0, 1 )
-shader_param/og_mid = Color( 0, 0, 1, 1 )
-shader_param/og_dark = Color( 0, 1, 0, 1 )
+[sub_resource type="ShaderMaterial" id=9]
+shader = ExtResource( 13 )
+shader_param/bright = Color( 1, 0, 0, 1 )
 shader_param/new_bright = Color( 0.705882, 0.12549, 0.164706, 1 )
-shader_param/new_mid = Color( 0.45098, 0.0901961, 0.176471, 1 )
+shader_param/normal = Color( 0, 0, 1, 1 )
+shader_param/new_normal = Color( 0.45098, 0.0901961, 0.176471, 1 )
+shader_param/dark = Color( 0, 0, 0, 1 )
 shader_param/new_dark = Color( 0.321569, 0.0470588, 0.101961, 1 )
 
-[sub_resource type="SegmentShape2D" id=1]
+[sub_resource type="SegmentShape2D" id=10]
 a = Vector2( -16, 0 )
 b = Vector2( 656, 0 )
 
@@ -240,10 +241,11 @@ pause_mode = 1
 layer = 0
 
 [node name="left paddle" parent="objects" instance=ExtResource( 2 )]
+material = ExtResource( 12 )
 position = Vector2( 80, 180 )
 
 [node name="right paddle" parent="objects" instance=ExtResource( 2 )]
-material = SubResource( 6 )
+material = SubResource( 9 )
 position = Vector2( 560, 180 )
 rotation = -3.14159
 scale = Vector2( 1, -1 )
@@ -258,7 +260,7 @@ position = Vector2( 320, 180 )
 [node name="walls" type="StaticBody2D" parent="objects/boundary"]
 
 [node name="collision top" type="CollisionShape2D" parent="objects/boundary/walls"]
-shape = SubResource( 1 )
+shape = SubResource( 10 )
 
 [node name="collision bottom" type="CollisionShape2D" parent="objects/boundary/walls"]
 shape = SubResource( 2 )

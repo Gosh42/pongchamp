@@ -7,6 +7,7 @@
 [ext_resource path="res://gfx/anim/menu_disappear.tres" type="Animation" id=5]
 
 [node name="about" type="Popup"]
+modulate = Color( 0.160784, 0, 0.286275, 0.0941176 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 popup_exclusive = true
@@ -20,7 +21,6 @@ margin_bottom = 332.0
 theme = ExtResource( 1 )
 
 [node name="ABOUT" type="Control" parent="TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 8.0
@@ -67,6 +67,7 @@ valign = 1
 autowrap = true
 
 [node name="TAB_3" type="Control" parent="TabContainer"]
+visible = false
 margin_left = 8.0
 margin_top = 40.0
 margin_right = 504.0
@@ -141,7 +142,7 @@ text = "CHANGE_TABS"
 align = 1
 valign = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="menu_anim_player" type="AnimationPlayer" parent="."]
 anims/menu_appear = ExtResource( 4 )
 anims/menu_disappear = ExtResource( 5 )
 

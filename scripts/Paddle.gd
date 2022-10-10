@@ -16,6 +16,18 @@ export var input_down = "plr1_down"
 export var input_up = "plr1_up"
 
 
+func _ready():
+	var chosen_colour = GameSettings.load_value("game", "player1_colour" if name.begins_with('l') else "player2_colour")
+	match chosen_colour:
+		0: # red
+			material.set_shader_param("new_bright", Color("#b4202a"))
+			material.set_shader_param("new_normal", Color("#73172d"))
+			material.set_shader_param("new_dark", Color("#520c1a"))
+		1: # blue
+			material.set_shader_param("new_bright", Color("#226287"))
+			material.set_shader_param("new_normal", Color("#0d2773"))
+			material.set_shader_param("new_dark", Color("#101236"))
+
 func _physics_process(delta):
 	# Determines where to move either from player controls
 	# or the position of the ball, if AI-controlled

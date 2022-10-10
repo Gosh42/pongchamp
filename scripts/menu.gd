@@ -25,7 +25,7 @@ func _ready():
 func open_menu_window(menu_number):
 	var menus = [game_settings, info_window]
 	menus[menu_number].popup()
-	menus[menu_number].get_node("AnimationPlayer").play("menu_appear")
+	menus[menu_number].get_node("menu_anim_player").play("menu_appear")
 	menus[menu_number].set_process(true)
 	
 	if menu_number == 0:

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=23 format=2]
+[gd_resource type="Theme" load_steps=29 format=2]
 
 [ext_resource path="res://fonts&text/goshpxfont2.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://theme/button_disabled.tres" type="StyleBox" id=2]
@@ -19,6 +19,12 @@
 [ext_resource path="res://gfx/hslider_grabber_highlight.png" type="Texture" id=17]
 [ext_resource path="res://gfx/hslider_grabber.png" type="Texture" id=18]
 [ext_resource path="res://gfx/hslider_grabber_disabled.png" type="Texture" id=19]
+[ext_resource path="res://gfx/dropdown_icon.png" type="Texture" id=20]
+[ext_resource path="res://theme/empty_outline.tres" type="StyleBox" id=21]
+[ext_resource path="res://gfx/checked.png" type="Texture" id=22]
+[ext_resource path="res://gfx/radio_checked.png" type="Texture" id=23]
+[ext_resource path="res://gfx/radio_unchecked.png" type="Texture" id=24]
+[ext_resource path="res://gfx/unchecked.png" type="Texture" id=25]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -57,7 +63,14 @@ HSlider/icons/tick = ExtResource( 16 )
 HSlider/styles/grabber_area = SubResource( 2 )
 HSlider/styles/grabber_area_highlight = SubResource( 3 )
 HSlider/styles/slider = ExtResource( 14 )
+OptionButton/icons/arrow = ExtResource( 20 )
 Panel/styles/panel = ExtResource( 7 )
+PopupMenu/icons/checked = ExtResource( 22 )
+PopupMenu/icons/radio_checked = ExtResource( 23 )
+PopupMenu/icons/radio_unchecked = ExtResource( 24 )
+PopupMenu/icons/unchecked = ExtResource( 25 )
+PopupMenu/styles/hover = ExtResource( 21 )
+PopupMenu/styles/panel = ExtResource( 2 )
 TabContainer/styles/panel = ExtResource( 7 )
 TabContainer/styles/tab_bg = ExtResource( 12 )
 TabContainer/styles/tab_disabled = ExtResource( 15 )
