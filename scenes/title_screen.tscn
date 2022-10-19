@@ -81,6 +81,7 @@ clip_text = true
 expand_icon = true
 
 [node name="game settings" parent="." instance=ExtResource( 6 )]
+visible = false
 
 [node name="about" parent="." instance=ExtResource( 2 )]
 

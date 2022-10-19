@@ -21,9 +21,13 @@ func _ready():
 	match chosen_colour:
 		0: # red
 			material.set_shader_param("new_bright", Color("#b4202a"))
-			material.set_shader_param("new_normal", Color("#73172d"))
-			material.set_shader_param("new_dark", Color("#520c1a"))
-		1: # blue
+			material.set_shader_param("new_normal", Color("#730b25"))
+			material.set_shader_param("new_dark", Color("#450814"))
+		1: # green
+			material.set_shader_param("new_bright", Color("#549e2f"))
+			material.set_shader_param("new_normal", Color("#156b35"))
+			material.set_shader_param("new_dark", Color("#0b4732"))
+		2: # blue
 			material.set_shader_param("new_bright", Color("#226287"))
 			material.set_shader_param("new_normal", Color("#0d2773"))
 			material.set_shader_param("new_dark", Color("#101236"))

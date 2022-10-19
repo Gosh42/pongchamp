@@ -21,8 +21,9 @@ SCORE_TO_WIN,Score to win:,Очков для победы:
 1_PLAYABLE,Player 1,Игрок 1
 2_PLAYABLE,Player 2,Игрок 2
 CLR_RED,Red,Красный
+CLR_GREEN,Green,Зелёный
 CLR_BLUE,Blue,Синий
-PAUSE, Paused, Пауза
+PAUSED, Paused, Пауза
 RESUME,Continue,Продолжить
 QUIT_TO_MENU,Quit to menu,Выйти в меню
 END_CONGRATS,"Player {n} won!","Игрок {n} подебил!"
