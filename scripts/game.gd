@@ -12,6 +12,7 @@ var score = [0, 0]
 var finish_score = 1
 
 func _ready():
+	randomize()
 	pause.hide()
 #	gameover_screen.hide()
 	
@@ -21,6 +22,10 @@ func _ready():
 	$UI/GUI/touch_ctrl_right.visible = paddle_right.playable
 	
 	finish_score = GameSettings.load_value("game", "required_score")
+	
+	$"%grass".texture = load("res://gfx/backgrounds/grass{}.png".format([randi() % 3], "{}"))
+	[$"%rocks", $"%trees"][randi() % 2].visible = true
+	$"%river".visible = randi() % 2
 	
 	$fade_in/fade_panel.show()
 	tween.interpolate_property($fade_in/fade_panel, "modulate", 
