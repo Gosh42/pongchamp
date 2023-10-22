@@ -62,8 +62,17 @@ b = Vector2( 656, 360 )
 pause_mode = 2
 script = ExtResource( 5 )
 
+[node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
+anchor_mode = 0
+current = true
+script = ExtResource( 11 )
+
+[node name="camera timer" type="Timer" parent="Camera2D"]
+
 [node name="background" type="CanvasLayer" parent="."]
 layer = -3
+follow_viewport_enable = true
 
 [node name="background" type="Sprite" parent="background"]
 visible = false
@@ -189,9 +198,6 @@ rect_pivot_offset = Vector2( 21, 17 )
 custom_fonts/font = SubResource( 5 )
 text = "0"
 align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="score right" type="Label" parent="UI/GUI"]
 margin_left = 540.0
@@ -207,7 +213,6 @@ __meta__ = {
 }
 
 [node name="pause" parent="UI" instance=ExtResource( 8 )]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -308,13 +313,5 @@ shape = SubResource( 4 )
 
 [node name="Tween" type="Tween" parent="."]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-unique_name_in_owner = true
-anchor_mode = 0
-current = true
-script = ExtResource( 11 )
-
-[node name="camera timer" type="Timer" parent="Camera2D"]
-
-[connection signal="button_down" from="UI/GUI/pause_button" to="." method="pause_button_pressed"]
 [connection signal="timeout" from="Camera2D/camera timer" to="Camera2D" method="_on_camera_timer_timeout"]
+[connection signal="button_down" from="UI/GUI/pause_button" to="." method="pause_button_pressed"]
