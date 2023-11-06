@@ -1,5 +1,5 @@
 keys,en,ru
-LANG_SWAP,Вкл. русский,Set English
+LANG_SWAP,Swap Language,Сменить язык
 PLAY,Play,Играть
 START_GAME,Start game,Начать игру
 ABOUT,About,Об игре
@@ -26,8 +26,6 @@ CLR_BLUE,Blue,Синий
 PAUSED, Paused, Пауза
 RESUME,Continue,Продолжить
 QUIT_TO_MENU,Quit to menu,Выйти в меню
-END_CONGRATS,"Player {n} won!","Игрок {n} подебил!"
+END_CONGRATS,"Player {n} won!","Игрок {n} победил!"
 RESTART,Play again,Сыграть ещё раз
-TAB_3,Tab 3,Вкладка 3
-TAB3_TEXT,"I wanted to test switching tabs but didn't know what to put in the third one, so here's badly drawn Lea from CrossCode (it's a good game I recommend)","Я хотел протестить смену вкладок, и не знал, что поместить в третью. Поэтому вот плохо нарисованная Лея из CrossCode (хорошая игра, всем советую)"
 FULLSCREEN,Fullscreen,Полный экран

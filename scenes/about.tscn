@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://theme/menu_theme.tres" type="Theme" id=1]
 [ext_resource path="res://scripts/about.gd" type="Script" id=2]
-[ext_resource path="res://badly_drawn_lea.png" type="Texture" id=3]
 [ext_resource path="res://gfx/anim/menu_appear.tres" type="Animation" id=4]
 [ext_resource path="res://gfx/anim/menu_disappear.tres" type="Animation" id=5]
 
@@ -15,7 +14,7 @@ script = ExtResource( 2 )
 
 [node name="TabContainer" type="TabContainer" parent="."]
 margin_left = 63.0
-margin_top = 28.0
+margin_top = 14.0
 margin_right = 575.0
 margin_bottom = 332.0
 theme = ExtResource( 1 )
@@ -63,27 +62,6 @@ margin_top = 7.0
 margin_right = -13.0
 margin_bottom = -54.0
 text = "CREDITS_TEXT"
-valign = 1
-autowrap = true
-
-[node name="TAB_3" type="Control" parent="TabContainer"]
-visible = false
-margin_left = 8.0
-margin_top = 40.0
-margin_right = 504.0
-margin_bottom = 296.0
-
-[node name="BadlyDrawnLea" type="Sprite" parent="TabContainer/TAB_3"]
-position = Vector2( 399, 109 )
-texture = ExtResource( 3 )
-
-[node name="Label" type="Label" parent="TabContainer/TAB_3"]
-margin_left = 13.0
-margin_top = 7.0
-margin_right = 317.0
-margin_bottom = 200.0
-text = "TAB3_TEXT"
-align = 3
 valign = 1
 autowrap = true
 

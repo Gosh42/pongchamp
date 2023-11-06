@@ -14,9 +14,9 @@ func _ready():
 		tween.start()
 		
 		if "en" in TranslationServer.get_locale():
-			$"VBoxContainer/language button".icon = preload("res://gfx/flag_ru.png")
-		else:
 			$"VBoxContainer/language button".icon = preload("res://gfx/flag_en.png")
+		else:
+			$"VBoxContainer/language button".icon = preload("res://gfx/flag_ru.png")
 			
 		$"VBoxContainer/play button".grab_focus()
 		game_settings = $"game settings/"
